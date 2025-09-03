@@ -61,7 +61,7 @@
       </div>
 
       <!-- Blog Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <article v-for="(post, index) in filteredPosts" 
                  :key="post.id"
                  class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer transform hover:-translate-y-2 border border-gray-100 overflow-hidden animate-fade-in-up"
@@ -169,58 +169,6 @@
           <Icon v-else name="ic:round-refresh" class="w-5 h-5 animate-spin" />
           {{ isLoading ? 'Завантаження...' : 'Показати більше статей' }}
         </button>
-      </div>
-
-      <!-- Blog Stats -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 py-12 border-t border-gray-200 mb-16">
-        <div v-for="stat in blogStats" :key="stat.label" 
-             class="text-center stat-item cursor-pointer transform hover:scale-110 transition-all duration-300">
-          <div class="text-3xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent mb-2">
-            {{ stat.value }}
-          </div>
-          <div class="text-sm text-gray-600">{{ stat.label }}</div>
-        </div>
-      </div>
-
-      <!-- Newsletter Subscription -->
-      <div class="bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 rounded-3xl p-12 relative overflow-hidden">
-        <!-- Background decoration -->
-        <div class="absolute inset-0">
-          <div class="absolute top-0 left-0 w-40 h-40 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full animate-blob"></div>
-          <div class="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-br from-pink-400/20 to-orange-400/20 rounded-full animate-blob animation-delay-2000"></div>
-        </div>
-        
-        <div class="relative text-center">
-          <div class="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
-            <Icon name="ic:round-mail" class="w-8 h-8 text-white" />
-          </div>
-          
-          <h3 class="text-3xl font-bold text-gray-900 mb-4">
-            Підписка на блог
-          </h3>
-          <p class="text-gray-600 mb-8 max-w-2xl mx-auto">
-            Отримуйте найкращі статті про веб-розробку та дизайн прямо на пошту. 
-            Без спаму, тільки корисний контент
-          </p>
-          
-          <!-- Newsletter form -->
-          <div class="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto">
-            <div class="relative flex-1 w-full">
-              <input type="email" 
-                     placeholder="Введіть ваш email"
-                     class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all duration-300 pl-12">
-              <Icon name="ic:round-mail" class="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-            </div>
-            <button class="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-medium hover:scale-105 hover:shadow-lg transition-all duration-300 flex items-center gap-2 whitespace-nowrap">
-              <Icon name="ic:round-send" class="w-5 h-5" />
-              Підписатися
-            </button>
-          </div>
-          
-          <p class="text-xs text-gray-500 mt-4">
-            Ваша email адреса в безпеці. Ми не передаємо дані третім особам
-          </p>
-        </div>
       </div>
     </div>
   </section>

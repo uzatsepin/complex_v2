@@ -45,14 +45,13 @@
 
           <!-- Subtitle -->
           <p class="text-xl text-gray-600 max-w-2xl leading-relaxed">
-            Розробляємо сучасні, швидкі та конверсійні веб-сайти, які допомагають вашому бізнесу зростати. 
-            Від ідеї до запуску за 14 днів.
+           {{ $t('mainPage.hero.subtitle') }}
           </p>
 
           <!-- Stats -->
           <div class="flex flex-wrap justify-center lg:justify-start gap-8 py-4">
             <div v-for="stat in stats" :key="stat.label" 
-                 class="text-center stat-item cursor-pointer transform hover:scale-110 transition-all duration-300">
+                 class="text-center p-4 rounded-2xl cursor-pointer transform hover:scale-110 transition-all duration-300">
               <div class="text-2xl font-bold text-gray-900">{{ stat.value }}</div>
               <div class="text-sm text-gray-600">{{ stat.label }}</div>
             </div>
@@ -256,8 +255,6 @@ const particles = [
 
 .stat-item:hover {
   background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(147, 51, 234, 0.1));
-  border-radius: 12px;
-  padding: 8px;
 }
 
 .company-item:hover {

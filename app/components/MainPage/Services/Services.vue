@@ -39,7 +39,7 @@
       </div>
 
       <!-- Services Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <div v-for="(service, index) in services" 
              :key="service.id" 
              class="service-card group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer transform hover:-translate-y-2 border border-gray-100"
@@ -101,7 +101,7 @@
       <!-- Statistics -->
       <div class="grid grid-cols-2 md:grid-cols-4 gap-8 py-12 border-t border-gray-200">
         <div v-for="stat in stats" :key="stat.label" 
-             class="text-center stat-item cursor-pointer transform hover:scale-110 transition-all duration-300">
+             class="text-center stat-item p-4 rounded-2xl cursor-pointer transform hover:scale-110 transition-all duration-300">
           <div class="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
             {{ stat.value }}
           </div>
@@ -386,8 +386,6 @@ const backgroundParticles = [
 
 .stat-item:hover {
   background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(147, 51, 234, 0.1));
-  border-radius: 12px;
-  padding: 12px;
 }
 
 @media (prefers-reduced-motion: reduce) {

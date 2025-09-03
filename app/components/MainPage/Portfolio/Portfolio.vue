@@ -61,7 +61,7 @@
       </div>
 
       <!-- Portfolio Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <PortfolioCard 
           v-for="project in filteredProjects" 
           :key="project.id"
@@ -83,48 +83,8 @@
           {{ isLoading ? 'Завантаження...' : 'Показати більше' }}
         </button>
       </div>
-
-      <!-- Stats -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 py-16 border-t border-gray-200 mt-16">
-        <div v-for="stat in portfolioStats" :key="stat.label" 
-             class="text-center stat-item cursor-pointer transform hover:scale-110 transition-all duration-300">
-          <div class="text-3xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent mb-2">
-            {{ stat.value }}
-          </div>
-          <div class="text-sm text-gray-600">{{ stat.label }}</div>
-        </div>
-      </div>
-
-      <!-- CTA Section -->
-      <div class="text-center bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 rounded-3xl p-12 relative overflow-hidden">
-        <!-- Background decoration -->
-        <div class="absolute inset-0">
-          <div class="absolute top-0 left-0 w-40 h-40 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full animate-blob"></div>
-          <div class="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-br from-pink-400/20 to-orange-400/20 rounded-full animate-blob animation-delay-2000"></div>
-        </div>
-        
-        <div class="relative">
-          <h3 class="text-3xl font-bold text-gray-900 mb-4">
-            Готові створити щось особливе?
-          </h3>
-          <p class="text-gray-600 mb-8 max-w-2xl mx-auto">
-            Давайте разом створимо проект, який стане новою історією успіху у нашому портфоліо
-          </p>
-          <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button class="px-8 py-4 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white rounded-xl font-medium hover:scale-105 hover:shadow-xl transition-all duration-300 flex items-center gap-2">
-              <Icon name="ic:round-rocket-launch" class="w-5 h-5" />
-              Почати проект
-            </button>
-            <button class="px-8 py-4 border-2 border-gray-300 text-gray-700 rounded-xl font-medium hover:border-blue-500 hover:text-blue-600 transition-all duration-300 flex items-center gap-2">
-              <Icon name="ic:round-download" class="w-5 h-5" />
-              Завантажити PDF
-            </button>
-          </div>
-        </div>
-      </div>
     </div>
 
-    <!-- Project Details Modal -->
     <Teleport to="body">
       <div v-if="selectedProject" 
            class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-fade-in"
@@ -578,12 +538,6 @@ onMounted(() => {
 
 .animation-delay-4000 {
   animation-delay: 4s;
-}
-
-.stat-item:hover {
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(147, 51, 234, 0.1));
-  border-radius: 16px;
-  padding: 16px;
 }
 
 @media (prefers-reduced-motion: reduce) {
