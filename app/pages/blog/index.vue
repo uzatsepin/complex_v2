@@ -55,7 +55,7 @@
                 <!-- Featured Grid -->
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
                     <!-- Main Featured Article -->
-                    <NuxtLink :to="`/blog/${featuredArticles[0]?.slug}`" class="group lg:row-span-2">
+                    <NuxtLink :to="`/blog/${featuredArticles[0]?.slug}`" class="group">
                         <article class="relative h-full min-h-[500px] bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
                             <div class="relative h-full">
                                 <img :src="featuredArticles[0]?.image" :alt="featuredArticles[0]?.title" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
@@ -100,15 +100,15 @@
                     </NuxtLink>
                     
                     <!-- Secondary Featured Articles -->
-                    <div class="flex flex-col gap-8">
+                    <div class="flex flex-col justify-between h-full min-h-[500px]">
                         <NuxtLink 
                             v-for="article in featuredArticles.slice(1, 3)" 
                             :key="article.id"
                             :to="`/blog/${article.slug}`"
-                            class="group"
+                            class="group flex-1 max-h-[240px]"
                         >
-                            <article class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                                <div class="flex h-48">
+                            <article class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 h-full">
+                                <div class="flex h-full">
                                     <div class="w-2/3 p-6 flex flex-col justify-between">
                                         <div>
                                             <div class="flex items-center gap-2 mb-3">
@@ -130,7 +130,7 @@
                                             </p>
                                         </div>
                                         
-                                        <div class="flex items-center justify-between">
+                                        <div class="flex items-center justify-between mt-4">
                                             <div class="text-xs text-gray-500">
                                                 {{ article.author }}
                                             </div>
@@ -474,9 +474,6 @@ const hasMorePosts = computed(() => {
 
     return filteredPosts.value.length < totalFiltered;
 });
-
-const totalArticles = computed(() => blogPosts.length);
-const totalViews = computed(() => '50k+');
 
 // Methods
 const loadMorePosts = async () => {

@@ -41,7 +41,7 @@
                             'w-16 h-16 rounded-2xl flex items-center justify-center transition-all duration-300',
                             service?.iconBg
                         ]">
-                            <Icon v-if="service?.icon" :name="service.icon" :class="['w-8 h-8', service?.iconColor]" />
+                            <Icon v-if="service?.icon" :name="service.icon" :class="['w-8 h-8', service?.iconColor]" size="32" />
                         </div>
                         
                         <!-- Badge -->
@@ -135,7 +135,7 @@
                         class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
                     >
                         <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl flex items-center justify-center mb-4">
-                            <Icon :name="benefit.icon" class="w-6 h-6 text-white" />
+                            <Icon :name="benefit.icon" class="w-6 h-6 text-white" size="24" />
                         </div>
                         <h3 class="text-xl font-bold text-gray-900 mb-3">{{ benefit.title }}</h3>
                         <p class="text-gray-600 leading-relaxed">{{ benefit.description }}</p>

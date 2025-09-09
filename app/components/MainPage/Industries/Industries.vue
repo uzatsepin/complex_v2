@@ -63,7 +63,7 @@
           <div class="relative mb-4">
             <div class="w-14 h-14 rounded-xl flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:rotate-6"
                  :class="industry.iconBg">
-              <Icon :name="industry.icon" class="w-7 h-7 transition-transform duration-500" :class="industry.iconColor" />
+              <Icon :name="industry.icon" class="w-7 h-7 transition-transform duration-500" size="28" :class="industry.iconColor" />
             </div>
             
             <!-- Success indicator -->
@@ -153,17 +153,6 @@
                   class="w-8 h-8 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors duration-200">
             <Icon name="ic:round-close" class="w-4 h-4 text-gray-600" />
           </button>
-        </div>
-      </div>
-
-      <!-- Statistics -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 py-12 border-t border-gray-200">
-        <div v-for="stat in overallStats" :key="stat.label" 
-             class="text-center stat-item cursor-pointer transform hover:scale-110 transition-all duration-300">
-          <div class="text-3xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent mb-2">
-            {{ stat.value }}
-          </div>
-          <div class="text-sm text-gray-600">{{ stat.label }}</div>
         </div>
       </div>
 

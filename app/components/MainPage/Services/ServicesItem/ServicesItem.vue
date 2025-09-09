@@ -16,7 +16,9 @@
                     <Icon
                         :name="service.icon"
                         class="w-8 h-8 transition-transform duration-500 group-hover:scale-110"
-                        :class="service.iconColor" />
+                        :class="service.iconColor" 
+                        size="32"
+                        />
                 </div>
 
                 <!-- Floating badge -->

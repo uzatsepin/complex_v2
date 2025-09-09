@@ -83,7 +83,8 @@
                                     <Icon
                                         :name="stat.icon"
                                         class="w-6 h-6"
-                                        :class="stat.iconColor" />
+                                        :class="stat.iconColor"
+                                        size="24" />
                                 </div>
                             </div>
                             <div class="text-2xl font-bold mb-2 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
@@ -121,6 +122,7 @@
                                 <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center shadow-md">
                                     <Icon
                                         name="ic:round-auto-awesome"
+                                        size="24"
                                         class="w-6 h-6 text-white" />
                                 </div>
                                 <div>
@@ -160,6 +162,7 @@
                                     <Icon
                                         :name="service.icon"
                                         class="w-6 h-6"
+                                        size="24"
                                         :class="service.iconColor" />
                                 </div>
                                 <h5 class="font-semibold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors">
@@ -197,6 +200,7 @@
                                 :class="feature.iconBg">
                                 <Icon
                                     :name="feature.icon"
+                                    size="32"
                                     class="w-8 h-8 transition-transform duration-500"
                                     :class="feature.iconColor" />
                             </div>
