@@ -381,32 +381,6 @@ watch(activeCategory, () => {
 </script>
 
 <style scoped>
-@keyframes blob {
-    0% { transform: translate(0px, 0px) scale(1); }
-    33% { transform: translate(50px, -70px) scale(1.1); }
-    66% { transform: translate(-40px, 40px) scale(0.9); }
-    100% { transform: translate(0px, 0px) scale(1); }
-}
-
-@keyframes float {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    50% { transform: translateY(-15px) rotate(3deg); }
-}
-
-@keyframes fade-in {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fade-in-up {
-    from { opacity: 0; transform: translateY(40px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes gradient {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-}
 
 .animate-blob { animation: blob 15s infinite; }
 .animate-float { animation: float 12s ease-in-out infinite; }
@@ -434,13 +408,5 @@ watch(activeCategory, () => {
     -webkit-box-orient: vertical;
     overflow: hidden;
     line-clamp: 3;
-}
-
-@media (prefers-reduced-motion: reduce) {
-    * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
 }
 </style>

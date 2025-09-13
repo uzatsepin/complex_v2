@@ -34,7 +34,7 @@
                 {{ service.title }}
             </h3>
 
-            <p class="text-gray-600 mb-6 leading-relaxed">
+            <p class="text-gray-600 mb-6 leading-relaxed line-clamp-3 min-h-[78px]">
                 {{ service.description }}
             </p>
 

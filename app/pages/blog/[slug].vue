@@ -24,7 +24,7 @@
 
                 <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative">
                     <!-- Breadcrumb -->
-                    <nav class="flex items-center space-x-2 text-sm text-white/80 mb-8 animate-fade-in">
+                    <nav class="max-w-6xl mx-auto flex items-center space-x-2 text-sm text-white/80 mb-8 animate-fade-in">
                         <NuxtLink to="/" class="hover:text-white transition-colors">{{ $t('blog.page.home') }}</NuxtLink>
                         <Icon name="ic:round-chevron-right" class="w-4 h-4" />
                         <NuxtLink to="/blog" class="hover:text-white transition-colors">{{ $t('blog.page.blog') }}</NuxtLink>
@@ -32,7 +32,7 @@
                         <span class="text-white">{{ article.title }}</span>
                     </nav>
 
-                    <div class="max-w-4xl animate-fade-in-up">
+                    <div class="mx-auto max-w-6xl animate-fade-in-up">
                         <!-- Category & Meta -->
                         <div class="flex flex-wrap items-center gap-4 mb-6">
                             <span 
@@ -62,21 +62,24 @@
                             {{ article.excerpt }}
                         </p>
 
-                        <!-- Author & Date -->
-                        <div class="flex flex-wrap items-center gap-6 pt-6 border-t border-white/20">
-                            <div class="flex items-center gap-3">
-                                <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
-                                    <Icon name="ic:round-person" class="w-6 h-6 text-white" />
-                                </div>
-                                <div>
-                                    <div class="text-white font-medium">{{ article.author }}</div>
-                                    <div class="text-white/70 text-sm">Автор статті</div>
-                                </div>
-                            </div>
-                            
+                        <!-- Share & Date -->
+                        <div class="flex flex-wrap items-center justify-between gap-6 pt-6 border-t border-white/20">
                             <div class="flex items-center gap-2 text-white/80">
                                 <Icon name="ic:round-calendar-today" class="w-4 h-4" />
                                 {{ article.date }}
+                            </div>
+
+                            <div class="flex items-center gap-3">
+                                <span class="text-white/70 text-sm mr-2">Поділитися:</span>
+                                <button class="w-10 h-10 bg-white/20 hover:bg-white/30 text-white rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110">
+                                    <Icon name="ic:round-share" class="w-5 h-5" />
+                                </button>
+                                <button class="w-10 h-10 bg-white/20 hover:bg-white/30 text-white rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110">
+                                    <Icon name="ic:round-bookmark" class="w-5 h-5" />
+                                </button>
+                                <button class="w-10 h-10 bg-white/20 hover:bg-white/30 text-white rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110">
+                                    <Icon name="ic:round-link" class="w-5 h-5" />
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -86,35 +89,7 @@
             <!-- Article Content -->
             <section class="py-16">
                 <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="max-w-4xl mx-auto">
-                        <!-- Social Share -->
-                        <div class="flex items-center justify-between mb-12 pb-6 border-b border-gray-200">
-                            <div class="flex items-center gap-3">
-                                <span class="text-gray-600 font-medium">Поділитися:</span>
-                                <div class="flex items-center gap-2">
-                                    <button class="w-10 h-10 bg-blue-600 hover:bg-blue-700 text-white rounded-full flex items-center justify-center transition-colors">
-                                        <Icon name="ic:round-share" class="w-5 h-5" />
-                                    </button>
-                                    <button class="w-10 h-10 bg-green-600 hover:bg-green-700 text-white rounded-full flex items-center justify-center transition-colors">
-                                        <Icon name="ic:round-bookmark" class="w-5 h-5" />
-                                    </button>
-                                    <button 
-                                        @click="toggleLike"
-                                        :class="[
-                                            'w-10 h-10 rounded-full flex items-center justify-center transition-all',
-                                            isLiked ? 'bg-red-600 text-white' : 'bg-gray-100 hover:bg-gray-200 text-gray-600'
-                                        ]"
-                                    >
-                                        <Icon name="ic:round-favorite" class="w-5 h-5" />
-                                    </button>
-                                </div>
-                            </div>
-                            
-                            <div class="text-sm text-gray-500">
-                                {{ article.likes + (isLiked ? 1 : 0) }} вподобань
-                            </div>
-                        </div>
-
+                    <div class="max-w-6xl mx-auto">
                         <!-- Article Body -->
                         <div class="prose prose-lg max-w-none">
                             <div v-html="article.content || demoContent"></div>
@@ -156,53 +131,6 @@
                             :post="post"
                             :index="index"
                         />
-                    </div>
-                </div>
-            </section>
-
-            <!-- Newsletter CTA -->
-            <section class="py-16 bg-gradient-to-r from-blue-600 to-purple-600 relative overflow-hidden">
-                <!-- Background elements -->
-                <div class="absolute inset-0">
-                    <div class="absolute top-10 left-10 w-40 h-40 bg-white/10 rounded-full mix-blend-multiply filter blur-2xl animate-blob"></div>
-                    <div class="absolute bottom-10 right-10 w-32 h-32 bg-white/10 rounded-full mix-blend-multiply filter blur-2xl animate-blob animation-delay-4000"></div>
-                </div>
-
-                <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-                    <div class="text-center max-w-3xl mx-auto">
-                        <h3 class="text-3xl sm:text-4xl font-bold text-white mb-4">
-                            Сподобалася стаття?
-                        </h3>
-                        <p class="text-blue-100 text-lg mb-8">
-                            Підписуйтеся на нашу розсилку і отримуйте найкращі статті прямо на пошту
-                        </p>
-                        
-                        <form @submit.prevent="subscribeNewsletter" class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-                            <input
-                                v-model="email"
-                                type="email"
-                                placeholder="Ваша електронна пошта"
-                                class="flex-1 px-4 py-3 rounded-xl border-0 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white/50"
-                                required
-                            />
-                            <button
-                                type="submit"
-                                :disabled="isSubscribing"
-                                class="px-6 py-3 bg-white text-blue-600 rounded-xl font-medium hover:bg-gray-100 transition-all duration-300 disabled:opacity-50 flex items-center justify-center gap-2"
-                            >
-                                <Icon
-                                    v-if="!isSubscribing"
-                                    name="ic:round-send"
-                                    class="w-4 h-4"
-                                />
-                                <Icon
-                                    v-else
-                                    name="ic:round-refresh"
-                                    class="w-4 h-4 animate-spin"
-                                />
-                                {{ isSubscribing ? "Підписуємо..." : "Підписатися" }}
-                            </button>
-                        </form>
                     </div>
                 </div>
             </section>
@@ -300,7 +228,6 @@ const relatedArticles: IBlogPost[] = [
 ];
 
 // Reactive data
-const isLiked = ref(false);
 const email = ref('');
 const isSubscribing = ref(false);
 
@@ -349,10 +276,6 @@ useHead({
 });
 
 // Methods
-const toggleLike = () => {
-    isLiked.value = !isLiked.value;
-};
-
 const subscribeNewsletter = async () => {
     isSubscribing.value = true;
     // Simulate API call
@@ -364,27 +287,6 @@ const subscribeNewsletter = async () => {
 </script>
 
 <style scoped>
-@keyframes blob {
-    0% { transform: translate(0px, 0px) scale(1); }
-    33% { transform: translate(50px, -70px) scale(1.1); }
-    66% { transform: translate(-40px, 40px) scale(0.9); }
-    100% { transform: translate(0px, 0px) scale(1); }
-}
-
-@keyframes float {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    50% { transform: translateY(-15px) rotate(3deg); }
-}
-
-@keyframes fade-in {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fade-in-up {
-    from { opacity: 0; transform: translateY(40px); }
-    to { opacity: 1; transform: translateY(0); }
-}
 
 .animate-blob { animation: blob 15s infinite; }
 .animate-float { animation: float 12s ease-in-out infinite; }
@@ -449,13 +351,5 @@ const subscribeNewsletter = async () => {
 .prose strong {
     font-weight: 600;
     color: #111827;
-}
-
-@media (prefers-reduced-motion: reduce) {
-    * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
 }
 </style>

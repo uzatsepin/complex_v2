@@ -1,13 +1,5 @@
 <template>
     <div>
-        <!-- Page Head -->
-        <Head>
-            <Title>Контакти - Complex Studio | Зв'яжіться з нами</Title>
-            <Meta name="description" content="Зв'яжіться з Complex Studio для обговорення вашого проекту. Телефон, email, адреса офісу та форма зворотного зв'язку." />
-            <Meta property="og:title" content="Контакти - Complex Studio" />
-            <Meta property="og:description" content="Зв'яжіться з Complex Studio для обговорення вашого проекту. Телефон, email, адреса офісу та форма зворотного зв'язку." />
-        </Head>
-
         <!-- Header -->
         <Header />
 
@@ -20,25 +12,6 @@
                     <div class="absolute top-20 left-10 w-72 h-72 bg-blue-400/20 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
                     <div class="absolute top-20 right-10 w-72 h-72 bg-purple-400/20 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
                     <div class="absolute -bottom-8 left-20 w-72 h-72 bg-pink-400/20 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
-
-                    <!-- Floating particles -->
-                    <div class="absolute inset-0">
-                        <div
-                            v-for="particle in particles"
-                            :key="particle.id"
-                            :class="particle.class"
-                            :style="particle.style"
-                            class="absolute pointer-events-none animate-float">
-                            <Icon
-                                :name="particle.icon"
-                                class="w-4 h-4 opacity-60" />
-                        </div>
-                    </div>
-
-                    <!-- Grid pattern -->
-                    <div class="absolute inset-0 opacity-30">
-                        <div class="absolute inset-0" style="background-image: radial-gradient(circle at 1px 1px, rgba(229, 231, 235, 0.6) 1px, transparent 0); background-size: 40px 40px"></div>
-                    </div>
                 </div>
 
                 <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative">
@@ -81,17 +54,17 @@
                             <div class="flex flex-wrap justify-center lg:justify-start gap-6 py-4">
                                 <div class="flex items-center space-x-3 p-3 bg-white/70 backdrop-blur-sm rounded-xl shadow-sm border border-white/50">
                                     <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center">
-                                        <Icon name="ic:round-phone" class="w-5 h-5 text-white" />
+                                        <Icon name="ic:round-phone" class="w-5 h-5 text-white" size="20"/>
                                     </div>
                                     <div>
                                         <div class="text-sm text-gray-600">Телефон</div>
                                         <div class="font-semibold text-gray-900">+38 (067) 123-45-67</div>
                                     </div>
                                 </div>
-                                
+
                                 <div class="flex items-center space-x-3 p-3 bg-white/70 backdrop-blur-sm rounded-xl shadow-sm border border-white/50">
                                     <div class="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center">
-                                        <Icon name="ic:round-email" class="w-5 h-5 text-white" />
+                                        <Icon name="ic:round-email" class="w-5 h-5 text-white" size="20"/>
                                     </div>
                                     <div>
                                         <div class="text-sm text-gray-600">Email</div>
@@ -130,15 +103,6 @@
                                     <p class="text-sm opacity-90">Сб-Нд: За домовленістю</p>
                                 </div>
 
-                                <div class="absolute -top-4 -right-4 w-56 h-28 bg-gradient-to-br from-green-500 to-green-600 rounded-3xl p-4 text-white shadow-2xl animate-float animation-delay-1000 z-10">
-                                    <div class="flex items-center space-x-3 mb-2">
-                                        <Icon name="ic:round-location-on" class="w-6 h-6" />
-                                        <span class="font-medium">Наш офіс</span>
-                                    </div>
-                                    <p class="text-sm opacity-90">м. Київ, вул. Хрещатик, 22</p>
-                                    <p class="text-sm opacity-90">БЦ "Plaza", 15 поверх</p>
-                                </div>
-
                                 <div class="absolute -bottom-6 -left-6 w-60 h-24 bg-gradient-to-br from-purple-500 to-purple-600 rounded-3xl p-4 text-white shadow-2xl animate-float animation-delay-2000 z-10">
                                     <div class="flex items-center space-x-3 mb-2">
                                         <Icon name="ic:round-support-agent" class="w-6 h-6" />
@@ -166,19 +130,6 @@
             <section class="py-20 bg-white relative overflow-hidden">
                 <!-- Background Elements -->
                 <div class="absolute inset-0">
-                    <!-- Floating particles -->
-                    <div class="absolute inset-0">
-                        <div
-                            v-for="particle in backgroundParticles"
-                            :key="particle.id"
-                            :class="particle.class"
-                            :style="particle.style"
-                            class="absolute pointer-events-none animate-float opacity-30">
-                            <Icon
-                                :name="particle.icon"
-                                class="w-5 h-5" />
-                        </div>
-                    </div>
 
                     <!-- Decorative orbs -->
                     <div class="absolute top-32 left-20 w-96 h-96 bg-gradient-to-br from-blue-400/10 to-purple-400/10 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
@@ -211,11 +162,11 @@
                     </div>
 
                     <!-- Contact Methods Grid -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         <!-- Phone -->
                         <div class="group bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer transform hover:-translate-y-2 border border-white/50 animate-fade-in-up">
                             <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                                <Icon name="ic:round-phone" class="w-8 h-8 text-white" />
+                                <Icon name="ic:round-phone" class="w-8 h-8 text-white" size="32" />
                             </div>
                             <h3 class="text-xl font-bold text-gray-900 mb-4">Телефон</h3>
                             <div class="space-y-2 text-gray-600">
@@ -229,7 +180,7 @@
                         <!-- Email -->
                         <div class="group bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer transform hover:-translate-y-2 border border-white/50 animate-fade-in-up animation-delay-200">
                             <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                                <Icon name="ic:round-email" class="w-8 h-8 text-white" />
+                                <Icon name="ic:round-email" class="w-8 h-8 text-white" size="32"/>
                             </div>
                             <h3 class="text-xl font-bold text-gray-900 mb-4">Email</h3>
                             <div class="space-y-2 text-gray-600">
@@ -240,24 +191,10 @@
                             <div class="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500 rounded-3xl blur-xl bg-gradient-to-br from-green-500 to-green-600"></div>
                         </div>
 
-                        <!-- Address -->
-                        <div class="group bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer transform hover:-translate-y-2 border border-white/50 animate-fade-in-up animation-delay-400">
-                            <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                                <Icon name="ic:round-location-on" class="w-8 h-8 text-white" />
-                            </div>
-                            <h3 class="text-xl font-bold text-gray-900 mb-4">Адреса офісу</h3>
-                            <div class="space-y-2 text-gray-600">
-                                <p class="font-medium">м. Київ, вул. Хрещатик, 22</p>
-                                <p class="font-medium">БЦ "Plaza", 15 поверх</p>
-                                <p class="text-sm">Офіс 1501</p>
-                            </div>
-                            <div class="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500 rounded-3xl blur-xl bg-gradient-to-br from-purple-500 to-purple-600"></div>
-                        </div>
-
                         <!-- Social Media -->
                         <div class="group bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer transform hover:-translate-y-2 border border-white/50 animate-fade-in-up animation-delay-600">
                             <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                                <Icon name="ic:round-share" class="w-8 h-8 text-white" />
+                                <Icon name="ic:round-share" class="w-8 h-8 text-white" size="32" />
                             </div>
                             <h3 class="text-xl font-bold text-gray-900 mb-4">Соціальні мережі</h3>
                             <div class="space-y-2">
@@ -277,71 +214,12 @@
                             <div class="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500 rounded-3xl blur-xl bg-gradient-to-br from-orange-500 to-orange-600"></div>
                         </div>
                     </div>
-
-                    <!-- Map Section -->
-                    <div class="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 lg:p-12 shadow-lg">
-                        <div class="text-center mb-8">
-                            <h3 class="text-2xl font-bold text-gray-900 mb-4">Як нас знайти</h3>
-                            <p class="text-gray-600">Наш офіс розташований в самому центрі Києва, поруч з метро "Хрещатик"</p>
-                        </div>
-                        
-                        <!-- Map placeholder -->
-                        <div class="bg-gradient-to-br from-blue-100 to-purple-100 rounded-2xl h-96 flex items-center justify-center relative overflow-hidden">
-                            <div class="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-purple-50/50"></div>
-                            <div class="relative text-center">
-                                <Icon name="ic:round-map" class="w-16 h-16 text-blue-500 mx-auto mb-4" />
-                                <h4 class="text-lg font-bold text-gray-700 mb-2">Інтерактивна карта</h4>
-                                <p class="text-gray-600 text-sm mb-4">м. Київ, вул. Хрещатик, 22</p>
-                                <button class="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors">
-                                    Відкрити в Google Maps
-                                </button>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </section>
 
             <!-- FAQ Section -->
-            <section class="py-20 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
-                <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-                    <!-- Section Header -->
-                    <div class="text-center mb-16 animate-fade-in">
-                        <div class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-orange-100 to-red-100 text-orange-800 rounded-full text-sm font-medium mb-6 animate-bounce-subtle">
-                            <Icon name="ic:round-help" class="w-4 h-4 mr-2 text-orange-600" />
-                            Часті питання
-                        </div>
 
-                        <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
-                            Відповіді на
-                            <span class="bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent animate-gradient block sm:inline">
-                                популярні питання
-                            </span>
-                        </h2>
-
-                        <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                            Зібрали найчастіші запитання від наших клієнтів. Не знайшли відповідь? Зв'яжіться з нами!
-                        </p>
-                    </div>
-
-                    <!-- FAQ Grid -->
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                        <div
-                            v-for="faq in faqs"
-                            :key="faq.id"
-                            class="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/50 hover:shadow-xl transition-all duration-300">
-                            <div class="flex items-start space-x-4">
-                                <div class="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                                    <Icon name="ic:round-help" class="w-4 h-4 text-white" />
-                                </div>
-                                <div>
-                                    <h3 class="text-lg font-bold text-gray-900 mb-3">{{ faq.question }}</h3>
-                                    <p class="text-gray-600 leading-relaxed">{{ faq.answer }}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <FaqSection :faqs="faqs" />
 
             <!-- Contact Form Section - используем готовый компонент -->
             <Contact />
@@ -353,7 +231,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import FaqSection from '~/components/UI/FaqSection/FaqSection.vue'
+import Contact from '~/components/MainPage/Contact/Contact.vue'
+import PrimaryButton from '~/components/UI/PrimaryButton.vue'
+import SecondaryButton from '~/components/UI/SecondaryButton.vue'
 
 // Meta data
 useHead({
@@ -364,99 +245,6 @@ useHead({
         { property: 'og:description', content: 'Зв\'яжіться з Complex Studio для обговорення вашого проекту. Телефон, email, адреса офісу та форма зворотного зв\'язку.' }
     ]
 })
-
-// Floating particles for hero section
-const particles = ref([
-    {
-        id: 1,
-        icon: 'ic:round-phone',
-        class: 'text-blue-400',
-        style: { top: '20%', left: '10%', animationDelay: '0s' }
-    },
-    {
-        id: 2,
-        icon: 'ic:round-email',
-        class: 'text-green-400',
-        style: { top: '30%', right: '15%', animationDelay: '2s' }
-    },
-    {
-        id: 3,
-        icon: 'ic:round-location-on',
-        class: 'text-purple-400',
-        style: { bottom: '40%', left: '20%', animationDelay: '4s' }
-    },
-    {
-        id: 4,
-        icon: 'ic:round-chat',
-        class: 'text-orange-400',
-        style: { top: '50%', right: '10%', animationDelay: '1s' }
-    },
-    {
-        id: 5,
-        icon: 'ic:round-support-agent',
-        class: 'text-pink-400',
-        style: { bottom: '30%', right: '25%', animationDelay: '3s' }
-    },
-    {
-        id: 6,
-        icon: 'ic:round-contact-support',
-        class: 'text-cyan-400',
-        style: { top: '60%', left: '15%', animationDelay: '5s' }
-    }
-])
-
-// Background particles for contact section
-const backgroundParticles = ref([
-    {
-        id: 1,
-        icon: 'ic:round-phone',
-        class: 'text-blue-300',
-        style: { top: '10%', left: '15%', animationDelay: '0s' }
-    },
-    {
-        id: 2,
-        icon: 'ic:round-email',
-        class: 'text-green-300',
-        style: { top: '20%', right: '20%', animationDelay: '2s' }
-    },
-    {
-        id: 3,
-        icon: 'ic:round-location-on',
-        class: 'text-purple-300',
-        style: { bottom: '30%', left: '10%', animationDelay: '4s' }
-    },
-    {
-        id: 4,
-        icon: 'ic:round-schedule',
-        class: 'text-orange-300',
-        style: { top: '40%', right: '10%', animationDelay: '1s' }
-    },
-    {
-        id: 5,
-        icon: 'ic:round-business',
-        class: 'text-red-300',
-        style: { bottom: '20%', right: '15%', animationDelay: '3s' }
-    },
-    {
-        id: 6,
-        icon: 'ic:round-map',
-        class: 'text-indigo-300',
-        style: { top: '70%', left: '25%', animationDelay: '6s' }
-    },
-    {
-        id: 7,
-        icon: 'ic:round-share',
-        class: 'text-teal-300',
-        style: { bottom: '50%', right: '30%', animationDelay: '8s' }
-    },
-    {
-        id: 8,
-        icon: 'ic:round-connect-without-contact',
-        class: 'text-yellow-300',
-        style: { top: '30%', left: '5%', animationDelay: '10s' }
-    }
-])
-
 // FAQ data
 const faqs = ref([
     {
@@ -493,62 +281,6 @@ const faqs = ref([
 </script>
 
 <style scoped>
-@keyframes blob {
-    0% {
-        transform: translate(0px, 0px) scale(1);
-    }
-    33% {
-        transform: translate(30px, -50px) scale(1.1);
-    }
-    66% {
-        transform: translate(-20px, 20px) scale(0.9);
-    }
-    100% {
-        transform: translate(0px, 0px) scale(1);
-    }
-}
-
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0px);
-    }
-    50% {
-        transform: translateY(-20px);
-    }
-}
-
-@keyframes gradient {
-    0%, 100% {
-        background-size: 200% 200%;
-        background-position: left center;
-    }
-    50% {
-        background-size: 200% 200%;
-        background-position: right center;
-    }
-}
-
-@keyframes fade-in {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fade-in-up {
-    from {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
 
 @keyframes bounce-subtle {
     0%, 100% {
@@ -626,14 +358,5 @@ const faqs = ref([
 /* Hover effects */
 .group:hover .absolute {
     transition: all 0.3s ease;
-}
-
-/* Responsive animations */
-@media (prefers-reduced-motion: reduce) {
-    * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
 }
 </style>

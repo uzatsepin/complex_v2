@@ -5,7 +5,7 @@
             :style="{ animationDelay: `${index * 0.15}s` }">
         <!-- Article Image -->
         <div class="relative h-48 overflow-hidden">
-            <img
+            <NuxtImg
                 :src="post.image"
                 :alt="post.title"
                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
@@ -41,10 +41,10 @@
             <div class="flex items-center justify-between text-sm text-gray-500 mb-3">
                 <div class="flex items-center gap-2">
                     <Icon
-                        name="ic:round-person"
+                        name="lucide:folder-search"
                         class="w-4 h-4"
                         size="16" />
-                    {{ post.author }}
+                    {{ post.category }}
                 </div>
                 <div class="flex items-center gap-2">
                     <Icon
@@ -88,12 +88,6 @@
                             name="ic:round-visibility"
                             class="w-4 h-4" />
                         {{ post.views }}
-                    </div>
-                    <div class="flex items-center gap-1">
-                        <Icon
-                            name="ic:round-thumb-up"
-                            class="w-4 h-4" />
-                        {{ post.likes }}
                     </div>
                 </div>
 

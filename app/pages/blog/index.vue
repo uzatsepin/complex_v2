@@ -216,52 +216,12 @@
             </div>
         </section>
 
-        <!-- Newsletter Section -->
-        <section class="py-20 bg-gradient-to-r from-blue-600 to-purple-600 relative overflow-hidden">
-            <div class="absolute inset-0">
-                <div class="absolute top-10 left-10 w-40 h-40 bg-white/10 rounded-full mix-blend-multiply filter blur-2xl animate-blob"></div>
-                <div class="absolute bottom-10 right-10 w-32 h-32 bg-white/10 rounded-full mix-blend-multiply filter blur-2xl animate-blob animation-delay-4000"></div>
-            </div>
-            
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-                <div class="text-center max-w-3xl mx-auto">
-                    <h3 class="text-3xl sm:text-4xl font-bold text-white mb-4">
-                        Залишайтеся в курсі новинок
-                    </h3>
-                    <p class="text-blue-100 text-lg mb-8">
-                        Підписуйтеся на нашу розсилку і отримуйте свіжі статті прямо на пошту
-                    </p>
-                    
-                    <form @submit.prevent="subscribeNewsletter" class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-                        <input
-                            v-model="email"
-                            type="email"
-                            placeholder="Ваша електронна пошта"
-                            class="flex-1 px-4 py-3 rounded-xl border-0 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white/50"
-                            required
-                        />
-                        <button
-                            type="submit"
-                            :disabled="isSubscribing"
-                            class="px-6 py-3 bg-white text-blue-600 rounded-xl font-medium hover:bg-gray-100 transition-all duration-300 disabled:opacity-50 flex items-center justify-center gap-2"
-                        >
-                            <Icon
-                                v-if="!isSubscribing"
-                                name="ic:round-send"
-                                class="w-4 h-4"
-                            />
-                            <Icon
-                                v-else
-                                name="ic:round-refresh"
-                                class="w-4 h-4 animate-spin"
-                            />
-                            {{ isSubscribing ? "Підписуємо..." : "Підписатися" }}
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </section>
+        <!-- CTA -->
 
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 mb-20">
+            <CtaSection />
+        </div>
+            
         <Footer />
     </div>
 </template>
@@ -269,6 +229,7 @@
 <script setup lang="ts">
 import type { IBlogPost } from '~/interface';
 import Article from '~/components/MainPage/Blog/Article/Article.vue';
+import CtaSection from '~/components/UI/CtaSection/CtaSection.vue';
 
 // SEO
 useHead({
@@ -500,66 +461,4 @@ watch(activeCategory, () => {
 </script>
 
 <style scoped>
-@keyframes blob {
-    0% { transform: translate(0px, 0px) scale(1); }
-    33% { transform: translate(50px, -70px) scale(1.1); }
-    66% { transform: translate(-40px, 40px) scale(0.9); }
-    100% { transform: translate(0px, 0px) scale(1); }
-}
-
-@keyframes float {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    50% { transform: translateY(-15px) rotate(3deg); }
-}
-
-@keyframes fade-in {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fade-in-up {
-    from { opacity: 0; transform: translateY(40px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes gradient {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-}
-
-.animate-blob { animation: blob 15s infinite; }
-.animate-float { animation: float 12s ease-in-out infinite; }
-.animate-fade-in { animation: fade-in 1s ease-out; }
-.animate-fade-in-up { animation: fade-in-up 0.6s ease-out; }
-.animate-gradient { 
-    background-size: 200% 200%; 
-    animation: gradient 6s ease infinite; 
-}
-
-.animation-delay-2000 { animation-delay: 2s; }
-.animation-delay-4000 { animation-delay: 4s; }
-
-.line-clamp-2 {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    line-clamp: 2;
-}
-
-.line-clamp-3 {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    line-clamp: 3;
-}
-
-@media (prefers-reduced-motion: reduce) {
-    * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
-}
 </style>

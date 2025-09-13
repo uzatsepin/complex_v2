@@ -1,5 +1,5 @@
 <template>
-    <section class="py-24 bg-gradient-to-b from-white via-gray-50 to-white relative overflow-hidden">
+    <section class="py-20 bg-gradient-to-b from-white via-gray-50 to-white relative overflow-hidden">
         <!-- Background Elements -->
         <div class="absolute inset-0">
             <!-- Floating particles -->
@@ -71,7 +71,7 @@
                     </div>
 
                     <!-- Interactive Stats -->
-                    <div class="grid grid-cols-2 gap-6">
+                    <div class="grid grid-cols-2 gap-4">
                         <div
                             v-for="stat in mainStats"
                             :key="stat.label"
@@ -87,7 +87,7 @@
                                         size="24" />
                                 </div>
                             </div>
-                            <div class="text-2xl font-bold mb-2 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                            <div class="text-xl font-bold mb-2 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                                 {{ stat.value }}
                             </div>
                             <div class="text-sm text-gray-600">{{ stat.label }}</div>
@@ -97,23 +97,10 @@
                                 :class="stat.glowColor"></div>
                         </div>
                     </div>
-
-                    <!-- Trust Badge -->
-                    <div class="bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl p-6 border border-green-200/50">
-                        <div class="flex items-center gap-3 mb-3">
-                            <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
-                                <Icon
-                                    name="ic:round-verified"
-                                    class="w-5 h-5 text-green-600" />
-                            </div>
-                            <h4 class="font-bold text-green-800">100% Гарантія якості</h4>
-                        </div>
-                        <p class="text-green-700 text-sm">Кожен проект проходить багаторівневу перевірку якості. Гарантуємо результат або повертаємо гроші.</p>
-                    </div>
                 </div>
 
                 <!-- Right: Interactive Elements -->
-                <div class="relative animate-slide-in-right space-y-6">
+                <div class="relative animate-slide-in-right space-y-10">
                     <!-- Header Card -->
                     <div class="bg-gradient-to-br from-white to-blue-50 rounded-2xl p-6 shadow-lg border border-white/50 relative overflow-hidden">
                         <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-xl"></div>
@@ -279,42 +266,13 @@
             </div>
 
             <!-- CTA Section -->
-            <div class="text-center bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 rounded-3xl p-12 relative overflow-hidden">
-                <!-- Background decoration -->
-                <div class="absolute inset-0">
-                    <div class="absolute top-0 left-0 w-40 h-40 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full animate-blob"></div>
-                    <div
-                        class="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-br from-pink-400/20 to-orange-400/20 rounded-full animate-blob animation-delay-2000"></div>
-                </div>
-
-                <div class="relative">
-                    <h3 class="text-3xl font-bold text-gray-900 mb-4">Готові почати співпрацю?</h3>
-                    <p class="text-gray-600 mb-8 max-w-2xl mx-auto">
-                        Давайте обговоримо ваш проект і покажемо, як наша експертиза допоможе вашому бізнесу досягти нових висот
-                    </p>
-                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                        <button
-                            class="px-8 py-4 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white rounded-xl font-medium hover:scale-105 hover:shadow-xl transition-all duration-300 flex items-center gap-2">
-                            <Icon
-                                name="ic:round-rocket-launch"
-                                class="w-5 h-5" />
-                            Почати проект
-                        </button>
-                        <button
-                            class="px-8 py-4 border-2 border-gray-300 text-gray-700 rounded-xl font-medium hover:border-blue-500 hover:text-blue-600 transition-all duration-300 flex items-center gap-2">
-                            <Icon
-                                name="ic:round-visibility"
-                                class="w-5 h-5" />
-                            Переглянути портфоліо
-                        </button>
-                    </div>
-                </div>
-            </div>
+            <CtaSection />
         </div>
     </section>
 </template>
 
 <script setup lang="ts">
+import CtaSection from '~/components/UI/CtaSection/CtaSection.vue';
 const mainStats = [
     {
         value: "200+",
@@ -516,41 +474,6 @@ const backgroundParticles = [
 </script>
 
 <style scoped>
-@keyframes blob {
-    0% {
-        transform: translate(0px, 0px) scale(1);
-    }
-    33% {
-        transform: translate(50px, -70px) scale(1.1);
-    }
-    66% {
-        transform: translate(-40px, 40px) scale(0.9);
-    }
-    100% {
-        transform: translate(0px, 0px) scale(1);
-    }
-}
-
-@keyframes float {
-    0%,
-    100% {
-        transform: translateY(0px) rotate(0deg);
-    }
-    50% {
-        transform: translateY(-20px) rotate(5deg);
-    }
-}
-
-@keyframes fade-in {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
 
 @keyframes slide-in-left {
     from {
@@ -571,16 +494,6 @@ const backgroundParticles = [
     to {
         opacity: 1;
         transform: translateX(0);
-    }
-}
-
-@keyframes gradient {
-    0%,
-    100% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
     }
 }
 
@@ -767,13 +680,5 @@ const backgroundParticles = [
 
 .tech-item:hover {
     background: linear-gradient(135deg, rgba(147, 51, 234, 0.1), rgba(59, 130, 246, 0.1));
-}
-
-@media (prefers-reduced-motion: reduce) {
-    * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
 }
 </style>

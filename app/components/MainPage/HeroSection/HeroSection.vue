@@ -3,32 +3,11 @@
         <!-- Background Elements -->
         <div class="absolute inset-0">
             <!-- Animated gradient orbs -->
-            <div class="absolute top-20 left-10 w-72 h-72 bg-blue-400/20 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+            <div class="absolute top-20 left-10 w-72 h-72 bg-blue-400/20 rounded-full mix-blend-multiply filter blur-xl opacity-70"></div>
             <div
-                class="absolute top-20 right-10 w-72 h-72 bg-purple-400/20 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+                class="absolute top-20 right-10 w-72 h-72 bg-purple-400/20 rounded-full mix-blend-multiply filter blur-xl opacity-70"></div>
             <div
-                class="absolute -bottom-8 left-20 w-72 h-72 bg-pink-400/20 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
-
-            <!-- Floating particles -->
-            <div class="absolute inset-0">
-                <div
-                    v-for="particle in particles"
-                    :key="particle.id"
-                    :class="particle.class"
-                    :style="particle.style"
-                    class="absolute pointer-events-none animate-float">
-                    <Icon
-                        :name="particle.icon"
-                        class="w-4 h-4 opacity-60" />
-                </div>
-            </div>
-
-            <!-- Grid pattern -->
-            <div class="absolute inset-0 opacity-30">
-                <div
-                    class="absolute inset-0"
-                    style="background-image: radial-gradient(circle at 1px 1px, rgba(229, 231, 235, 0.6) 1px, transparent 0); background-size: 40px 40px"></div>
-            </div>
+                class="absolute -bottom-8 left-20 w-72 h-72 bg-pink-400/20 rounded-full mix-blend-multiply filter blur-xl opacity-70"></div>
         </div>
 
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative">
@@ -38,17 +17,19 @@
                     <!-- Badge -->
                     <div
                         class="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium cursor-pointer transform hover:scale-105 transition-all duration-300 animate-bounce-subtle">
-                        <Icon
+                        <ClientOnly>
+                            <Icon
                             name="ic:round-star"
                             class="w-4 h-4 mr-2 text-blue-600" />
-                        #1 Веб-агентство України
+                        </ClientOnly>
+                        {{$t("mainPage.hero.badgeTitle") }}
                     </div>
 
                     <!-- Main Headline -->
                     <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-                        Створюємо
-                        <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent animate-gradient"> веб-сайти </span>
-                        які продають
+                        {{$t('mainPage.hero.title') }}
+                        <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent animate-gradient"> {{$t('mainPage.hero.titleHighlight') }} </span>
+                        {{$t('mainPage.hero.titleHighlightPart') }}
                     </h1>
 
                     <!-- Subtitle -->
@@ -72,20 +53,20 @@
                         <PrimaryButton
                             size="lg"
                             icon="ic:round-rocket-launch">
-                            Розпочати проект
+                            {{ $t("startProject") }}
                         </PrimaryButton>
                         <SecondaryButton
                             size="lg"
                             icon="ic:round-play-arrow"
                             variant="ghost"
                             class="cta-secondary">
-                            Дивитися кейси
+                            {{ $t("sawCases") }}
                         </SecondaryButton>
                     </div>
 
                     <!-- Trust Indicators -->
                     <div class="pt-8">
-                        <p class="text-sm text-gray-500 mb-4">Нам довіряють:</p>
+                        <p class="text-sm text-gray-500 mb-4">{{ $t("mainPage.hero.trusted") }}</p>
                         <div class="flex items-center justify-center lg:justify-start gap-6 opacity-60">
                             <div
                                 v-for="company in trustedCompanies"
@@ -130,15 +111,9 @@
                                         <div class="h-20 bg-gray-100 rounded hover:bg-gray-200 transition-colors cursor-pointer"></div>
                                     </div>
                                 </div>
-
-                                <!-- Floating elements -->
-                                <div
-                                    class="absolute -top-4 -right-4 bg-blue-500 text-white text-xs px-3 py-1 rounded-full cursor-pointer transform hover:scale-110 transition-all animate-bounce">
-                                    +127% ROI
-                                </div>
                                 <div
                                     class="absolute bottom-4 z-20 left-4 bg-green-500 text-white text-xs px-3 py-1 rounded-full cursor-pointer transform hover:scale-110 transition-all animate-pulse">
-                                    Швидкість: A+
+                                    {{ $t('mainPage.hero.speed') }} 90+
                                 </div>
                             </div>
                         </div>
@@ -176,80 +151,9 @@ const stats = [
 
 const trustedCompanies = ["TechCorp", "StartupHub", "BusinessPro"];
 
-const particles = [
-    {
-        id: 1,
-        icon: "ic:round-code",
-        class: "text-blue-400",
-        style: { top: "10%", left: "5%" }
-    },
-    {
-        id: 2,
-        icon: "ic:round-design-services",
-        class: "text-purple-400",
-        style: { top: "20%", right: "5%" }
-    },
-    {
-        id: 3,
-        icon: "ic:round-speed",
-        class: "text-green-400",
-        style: { top: "70%", left: "10%" }
-    },
-    {
-        id: 4,
-        icon: "ic:round-analytics",
-        class: "text-orange-400",
-        style: { top: "80%", right: "15%" }
-    }
-];
 </script>
 
 <style scoped>
-@keyframes blob {
-    0% {
-        transform: translate(0px, 0px) scale(1);
-    }
-    33% {
-        transform: translate(30px, -50px) scale(1.1);
-    }
-    66% {
-        transform: translate(-20px, 20px) scale(0.9);
-    }
-    100% {
-        transform: translate(0px, 0px) scale(1);
-    }
-}
-
-@keyframes float {
-    0%,
-    100% {
-        transform: translateY(0px);
-    }
-    50% {
-        transform: translateY(-20px);
-    }
-}
-
-@keyframes fade-in {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes gradient {
-    0%,
-    100% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-}
 
 @keyframes bounce-subtle {
     0%,
@@ -268,65 +172,6 @@ const particles = [
     }
     50% {
         transform: scale(1.02);
-    }
-}
-
-.animate-blob {
-    animation: blob 7s infinite;
-}
-
-.animate-float {
-    animation: float 6s ease-in-out infinite;
-}
-
-.animate-fade-in {
-    animation: fade-in 1s ease-out;
-}
-
-.animate-gradient {
-    background-size: 200% 200%;
-    animation: gradient 3s ease infinite;
-}
-
-.animate-bounce-subtle {
-    animation: bounce-subtle 2s infinite;
-}
-
-.animate-pulse-subtle {
-    animation: pulse-subtle 2s infinite;
-}
-
-.animation-delay-1000 {
-    animation-delay: 1s;
-}
-
-.animation-delay-2000 {
-    animation-delay: 2s;
-}
-
-.animation-delay-3000 {
-    animation-delay: 3s;
-}
-
-.animation-delay-4000 {
-    animation-delay: 4s;
-}
-
-.stat-item:hover {
-    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(147, 51, 234, 0.1));
-}
-
-.company-item:hover {
-    background: rgba(59, 130, 246, 0.05);
-    border-radius: 8px;
-    padding: 4px 8px;
-}
-
-@media (prefers-reduced-motion: reduce) {
-    * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
     }
 }
 </style>

@@ -209,44 +209,7 @@
         </section>
 
         <!-- FAQ Section -->
-        <section class="py-20 bg-white">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-                        Часті питання
-                    </h2>
-                    <p class="text-gray-600 max-w-2xl mx-auto">
-                        Відповіді на найпоширеніші запитання про наші послуги
-                    </p>
-                </div>
-                
-                <div class="max-w-3xl mx-auto space-y-4">
-                    <div 
-                        v-for="(faq, index) in faqs" 
-                        :key="index"
-                        class="bg-gradient-to-br from-gray-50 to-white rounded-2xl border border-gray-100 overflow-hidden"
-                    >
-                        <button 
-                            @click="toggleFaq(index)"
-                            class="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
-                        >
-                            <span class="font-medium text-gray-900">{{ faq.question }}</span>
-                            <Icon 
-                                name="ic:round-expand-more" 
-                                class="w-5 h-5 text-gray-500 transition-transform duration-300"
-                                :class="{ 'rotate-180': openFaq === index }"
-                            />
-                        </button>
-                        <div 
-                            v-show="openFaq === index"
-                            class="px-6 pb-4 text-gray-600 leading-relaxed border-t border-gray-100"
-                        >
-                            {{ faq.answer }}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+       <FaqSection v-if="service?.faqs" :faqs="service.faqs" />
 
         <!-- CTA Section -->
         <section class="py-20 bg-gradient-to-r from-blue-600 to-purple-600 relative overflow-hidden">
@@ -284,6 +247,7 @@
 </template>
 
 <script setup lang="ts">
+import FaqSection from '~/components/UI/FaqSection/FaqSection.vue';
 import type { IService } from '~/interface';
 
 // Get the slug from route params
@@ -339,14 +303,17 @@ const servicesData: IService[] = [
         ],
         faqs: [
             {
+                id: 1,
                 question: "Скільки часу займає розробка інтернет-магазину?",
                 answer: "Типовий інтернет-магазин розробляється за 3-6 тижнів в залежності від складності функціоналу та кількості товарів."
             },
             {
+                id: 2,
                 question: "Які платіжні системи можна інтегрувати?",
                 answer: "Ми інтегруємо всі популярні платіжні системи: LiqPay, Fondy, WayForPay, Stripe, PayPal та інші."
             },
             {
+                id: 3,
                 question: "Чи надаєте ви подальшу підтримку?",
                 answer: "Так, ми надаємо технічну підтримку, оновлення та розвиток функціоналу після запуску."
             }
@@ -519,31 +486,27 @@ const techStack = computed(() => {
 const faqs = computed(() => {
     return service.value?.faqs || [
         {
+            id: 1,
             question: "Скільки часу займає розробка?",
             answer: "Час розробки залежить від складності проекту. Простий проект може бути готовий за тиждень, складні системи розробляються до 2-3 місяців."
         },
         {
+            id: 2,
             question: "Чи надаєте ви гарантію на роботу?",
             answer: "Так, ми надаємо гарантію на всі виконані роботи терміном 6 місяців з моменту здачі проекту."
         },
         {
+            id: 3,
             question: "Які технології ви використовуєте?",
             answer: "Ми працюємо з сучасними технологіями: Vue.js, React, Node.js, Python, MongoDB, PostgreSQL та іншими."
         },
         {
+            id: 4,
             question: "Чи можна внести зміни в процесі розробки?",
             answer: "Так, ми використовуємо гнучку методологію розробки, що дозволяє вносити корективи на будь-якому етапі."
         }
     ];
 });
-
-// Reactive data
-const openFaq = ref<number | null>(null);
-
-// Methods
-const toggleFaq = (index: number) => {
-    openFaq.value = openFaq.value === index ? null : index;
-};
 
 // SEO
 useHead({
@@ -566,41 +529,4 @@ if (!service.value) {
 </script>
 
 <style scoped>
-@keyframes blob {
-    0% { transform: translate(0px, 0px) scale(1); }
-    33% { transform: translate(50px, -70px) scale(1.1); }
-    66% { transform: translate(-40px, 40px) scale(0.9); }
-    100% { transform: translate(0px, 0px) scale(1); }
-}
-
-@keyframes float {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    50% { transform: translateY(-15px) rotate(3deg); }
-}
-
-@keyframes fade-in {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fade-in-up {
-    from { opacity: 0; transform: translateY(40px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.animate-blob { animation: blob 15s infinite; }
-.animate-float { animation: float 12s ease-in-out infinite; }
-.animate-fade-in { animation: fade-in 1s ease-out; }
-.animate-fade-in-up { animation: fade-in-up 0.6s ease-out; }
-
-.animation-delay-2000 { animation-delay: 2s; }
-.animation-delay-4000 { animation-delay: 4s; }
-
-@media (prefers-reduced-motion: reduce) {
-    * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
-}
 </style>

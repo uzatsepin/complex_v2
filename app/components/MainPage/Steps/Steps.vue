@@ -1,5 +1,5 @@
 <template>
-    <section class="py-24 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
+    <section class="py-20 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
         <!-- Background Elements -->
         <div class="absolute inset-0">
             <!-- Floating particles -->
@@ -19,8 +19,6 @@
             <!-- Decorative orbs -->
             <div
                 class="absolute top-20 left-10 w-80 h-80 bg-gradient-to-br from-blue-400/10 to-purple-400/10 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
-            <div
-                class="absolute bottom-20 right-10 w-72 h-72 bg-gradient-to-br from-green-400/10 to-cyan-400/10 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000"></div>
 
             <!-- Grid pattern -->
             <div class="absolute inset-0 opacity-20">
@@ -636,52 +634,6 @@ const selectStep = (stepId: number) => {
 </script>
 
 <style scoped>
-@keyframes blob {
-    0% {
-        transform: translate(0px, 0px) scale(1);
-    }
-    33% {
-        transform: translate(40px, -60px) scale(1.1);
-    }
-    66% {
-        transform: translate(-30px, 30px) scale(0.9);
-    }
-    100% {
-        transform: translate(0px, 0px) scale(1);
-    }
-}
-
-@keyframes float {
-    0%,
-    100% {
-        transform: translateY(0px) rotate(0deg);
-    }
-    50% {
-        transform: translateY(-15px) rotate(3deg);
-    }
-}
-
-@keyframes fade-in {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fade-in-up {
-    from {
-        opacity: 0;
-        transform: translateY(50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
 
 @keyframes scale-in {
     from {
@@ -691,16 +643,6 @@ const selectStep = (stepId: number) => {
     to {
         opacity: 1;
         transform: scale(1);
-    }
-}
-
-@keyframes gradient {
-    0%,
-    100% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
     }
 }
 
@@ -778,13 +720,5 @@ const selectStep = (stepId: number) => {
     background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(147, 51, 234, 0.1));
     border-radius: 16px;
     padding: 16px;
-}
-
-@media (prefers-reduced-motion: reduce) {
-    * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
 }
 </style>

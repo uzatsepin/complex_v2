@@ -22,11 +22,12 @@
             <!-- Status badge -->
             <div
                 v-if="project.isLive"
-                class="absolute top-4 right-4 px-3 py-1 bg-green-500 text-white rounded-full text-xs font-medium transition-all duration-300 group-hover:scale-110 group-hover:bg-green-600">
+                class="absolute top-4 right-4 px-3 py-1 flex items-center gap-1 bg-green-500 text-white rounded-full text-xs font-medium transition-all duration-300 group-hover:scale-110 group-hover:bg-green-600">
                 <Icon
                     name="ic:round-visibility"
-                    class="w-3 h-3 inline mr-1" />
-                Live
+                    class="w-3 h-3 inline mr-1" 
+                    size="12" />
+                <p>Live</p>
             </div>
 
             <!-- Action buttons - always visible but small -->
@@ -61,10 +62,10 @@
         <div class="p-6">
             <!-- Title and Description -->
             <h3
-                class="text-xl font-bold text-gray-900 mb-2 transition-all duration-300 group-hover:text-blue-600 group-hover:transform group-hover:scale-105 group-hover:translate-x-1">
+                class="text-xl font-bold text-gray-900 mb-2 transition-all duration-300 group-hover:text-blue-600 group-hover:transform group-hover:scale-105 group-hover:translate-x-1 line-clamp-2 min-h-[56px]">
                 {{ project.title }}
             </h3>
-            <p class="text-gray-600 text-sm mb-4 leading-relaxed transition-all duration-300 group-hover:text-gray-800">
+            <p class="text-gray-600 text-sm mb-4 leading-relaxed transition-all duration-300 group-hover:text-gray-800 line-clamp-2 min-h-[45px]">
                 {{ project.description }}
             </p>
 
@@ -191,24 +192,5 @@ const openLink = (url: string) => {
 
 .portfolio-card:hover {
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
-}
-
-@keyframes fade-in {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
 }
 </style>
