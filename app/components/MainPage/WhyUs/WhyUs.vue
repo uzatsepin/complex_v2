@@ -1,56 +1,26 @@
 <template>
     <section class="py-20 bg-gradient-to-b from-white via-gray-50 to-white relative overflow-hidden">
-        <!-- Background Elements -->
-        <div class="absolute inset-0">
-            <!-- Floating particles -->
-            <div class="absolute inset-0">
-                <div
-                    v-for="particle in backgroundParticles"
-                    :key="particle.id"
-                    :class="particle.class"
-                    :style="particle.style"
-                    class="absolute pointer-events-none animate-float opacity-40">
-                    <Icon
-                        :name="particle.icon"
-                        class="w-6 h-6" />
-                </div>
-            </div>
-
-            <!-- Decorative orbs -->
-            <div
-                class="absolute top-32 left-20 w-96 h-96 bg-gradient-to-br from-blue-400/10 to-purple-400/10 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
-            <div
-                class="absolute bottom-32 right-20 w-80 h-80 bg-gradient-to-br from-green-400/10 to-cyan-400/10 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000"></div>
-
-            <!-- Grid pattern -->
-            <div class="absolute inset-0 opacity-10">
-                <div
-                    class="absolute inset-0"
-                    style="background-image: radial-gradient(circle at 2px 2px, rgba(59, 130, 246, 0.4) 1px, transparent 0); background-size: 50px 50px"></div>
-            </div>
-        </div>
 
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative">
             <!-- Section Header -->
-            <div class="text-center mb-20 animate-fade-in">
+            <div class="text-center mb-20">
                 <div
-                    class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-100 to-purple-100 text-blue-800 rounded-full text-sm font-medium mb-6 animate-bounce-subtle">
+                    class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-100 to-purple-100 text-blue-800 rounded-full text-sm font-medium mb-6">
                     <Icon
                         name="ic:round-groups"
                         class="w-4 h-4 mr-2 text-blue-600" />
-                    Чому саме ми?
+                    {{ $t('mainPage.whyUs.badgeTitle') }}
                 </div>
 
                 <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-                    Ваші ідеї —
+                    {{ $t('mainPage.whyUs.title') }}
                     <span class="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent animate-gradient block sm:inline">
-                        наша експертиза
+                        {{ $t('mainPage.whyUs.titleHighlight') }}
                     </span>
                 </h2>
 
                 <p class="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-                    Ми — агенція повного циклу, що спеціалізується на моушн-дизайні, розробці, лендінгах та брендингу. Використовуємо комплексні бізнес-рішення,
-                    щоб ваш бізнес досяг нових висот
+                    {{ $t('mainPage.whyUs.descr') }}
                 </p>
             </div>
 
@@ -60,13 +30,12 @@
                 <div class="space-y-8 animate-slide-in-left">
                     <div class="space-y-6">
                         <h3 class="text-3xl font-bold text-gray-900">
-                            Перегляньте наше портфоліо —
-                            <span class="text-blue-600">воно говорить саме за себе</span>
+                            {{ $t('mainPage.whyUs.watchPortfolio') }}
+                            <span class="text-blue-600">{{ $t('mainPage.whyUs.watchPortfolioHighlight') }}</span>
                         </h3>
 
                         <p class="text-lg text-gray-600 leading-relaxed">
-                            Ми адаптуємось під потреби клієнта, контролюємо всі процеси від початку до кінця. У нашій команді — спеціалісти світового рівня, які
-                            забезпечують професійний супровід та покривають широкий спектр сучасних технологій.
+                            {{ $t('mainPage.whyUs.watchPortfolioDescr') }}
                         </p>
                     </div>
 
@@ -113,8 +82,8 @@
                                         class="w-6 h-6 text-white" />
                                 </div>
                                 <div>
-                                    <h4 class="text-lg font-bold text-gray-900">Наша експертиза</h4>
-                                    <p class="text-sm text-gray-600">Повний цикл розробки</p>
+                                    <h4 class="text-lg font-bold text-gray-900">{{ $t('mainPage.whyUs.ourExpertise') }}</h4>
+                                    <p class="text-sm text-gray-600">{{ $t('mainPage.whyUs.fullCircle') }}</p>
                                 </div>
                             </div>
 
@@ -122,15 +91,15 @@
                             <div class="grid grid-cols-3 gap-3">
                                 <div class="text-center bg-white/60 rounded-lg p-2">
                                     <div class="text-lg font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">200+</div>
-                                    <div class="text-xs text-gray-600">проектів</div>
+                                    <div class="text-xs text-gray-600">{{ $t('mainPage.whyUs.projects') }}</div>
                                 </div>
                                 <div class="text-center bg-white/60 rounded-lg p-2">
                                     <div class="text-lg font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">98%</div>
-                                    <div class="text-xs text-gray-600">успіхів</div>
+                                    <div class="text-xs text-gray-600">{{ $t('mainPage.whyUs.success') }}</div>
                                 </div>
                                 <div class="text-center bg-white/60 rounded-lg p-2">
                                     <div class="text-lg font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">24/7</div>
-                                    <div class="text-xs text-gray-600">підтримка</div>
+                                    <div class="text-xs text-gray-600">{{ $t('mainPage.whyUs.support') }}</div>
                                 </div>
                             </div>
                         </div>
@@ -162,7 +131,7 @@
                                     <Icon
                                         name="ic:round-check-circle"
                                         class="w-3 h-3 text-green-500" />
-                                    <span>{{ service.projects }}+ проектів</span>
+                                    <span>{{ service.projects }}+ {{ $t('mainPage.whyUs.projects') }}</span>
                                 </div>
                             </div>
                         </div>
@@ -172,7 +141,7 @@
 
             <!-- Why Choose Us Features -->
             <div class="mb-20">
-                <h3 class="text-3xl font-bold text-center text-gray-900 mb-12">Що робить нас <span class="text-blue-600">особливими</span></h3>
+                <h3 class="text-3xl font-bold text-center text-gray-900 mb-12">{{ $t('mainPage.whyUs.specialTitle') }} <span class="text-blue-600">{{ $t('mainPage.whyUs.specialHighlight') }}</span></h3>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <div
@@ -241,8 +210,8 @@
 
             <!-- Technology Stack -->
             <div class="mb-20">
-                <h3 class="text-3xl font-bold text-center text-gray-900 mb-4">Технології, якими ми <span class="text-purple-600">володіємо</span></h3>
-                <p class="text-center text-gray-600 mb-12">Використовуємо найсучасніший стек для досягнення найкращих результатів</p>
+                <h3 class="text-3xl font-bold text-center text-gray-900 mb-4">{{ $t('mainPage.whyUs.technologies') }} <span class="text-purple-600">{{ $t('mainPage.whyUs.technologiesHighlight') }}</span></h3>
+                <p class="text-center text-gray-600 mb-12">{{ $t('mainPage.whyUs.technologiesDescr') }}</p>
 
                 <div class="flex flex-wrap justify-center items-center gap-6">
                     <div

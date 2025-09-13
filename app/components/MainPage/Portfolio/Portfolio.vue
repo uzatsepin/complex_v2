@@ -1,60 +1,30 @@
 <template>
     <section class="py-20 bg-gradient-to-b from-white via-gray-50 to-white relative overflow-hidden">
-        <!-- Background Elements -->
-        <div class="absolute inset-0">
-            <!-- Floating particles -->
-            <div class="absolute inset-0">
-                <div
-                    v-for="particle in backgroundParticles"
-                    :key="particle.id"
-                    :class="particle.class"
-                    :style="particle.style"
-                    class="absolute pointer-events-none animate-float opacity-30">
-                    <Icon
-                        :name="particle.icon"
-                        class="w-5 h-5" />
-                </div>
-            </div>
-
-            <!-- Decorative orbs -->
-            <div
-                class="absolute top-32 left-20 w-96 h-96 bg-gradient-to-br from-blue-400/10 to-purple-400/10 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
-            <div
-                class="absolute bottom-32 right-20 w-80 h-80 bg-gradient-to-br from-pink-400/10 to-orange-400/10 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000"></div>
-
-            <!-- Grid pattern -->
-            <div class="absolute inset-0 opacity-10">
-                <div
-                    class="absolute inset-0"
-                    style="background-image: radial-gradient(circle at 1px 1px, rgba(59, 130, 246, 0.4) 1px, transparent 0); background-size: 40px 40px"></div>
-            </div>
-        </div>
-
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative">
             <!-- Section Header -->
-            <div class="text-center mb-16 animate-fade-in">
+            <div class="text-center mb-16">
                 <div
-                    class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-100 to-purple-100 text-blue-800 rounded-full text-sm font-medium mb-6 animate-bounce-subtle">
+                    class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-100 to-purple-100 text-blue-800 rounded-full text-sm font-medium mb-6">
                     <Icon
                         name="ic:round-work"
                         class="w-4 h-4 mr-2 text-blue-600" />
-                    Наші роботи
+                    {{ $t('mainPage.portfolio.badgeTitle') }}
                 </div>
 
                 <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
-                    Портфоліо проектів
+                    {{ $t('mainPage.portfolio.title') }}
                     <span class="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent animate-gradient block sm:inline">
-                        що надихають
+                        {{ $t('mainPage.portfolio.titleHighlight') }}
                     </span>
                 </h2>
 
                 <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                    Кожен проект - це унікальна історія успіху. Подивіться на наші найкращі роботи та переконайтеся в якості нашої експертизи
+                    {{ $t('mainPage.portfolio.descr') }}
                 </p>
             </div>
 
             <!-- Filter Tabs -->
-            <div class="flex flex-wrap justify-center gap-2 mb-12">
+            <div class="flex flex-wrap justify-center gap-6 mb-12">
                 <button
                     v-for="filter in filters"
                     :key="filter.id"
@@ -421,46 +391,6 @@ const portfolioProjects: PortfolioProject[] = [
     }
 ];
 
-const portfolioStats = [
-    { value: "50+", label: "Завершених проектів" },
-    { value: "98%", label: "Задоволених клієнтів" },
-    { value: "4.8", label: "Середній рейтинг" },
-    { value: "24/7", label: "Підтримка проектів" }
-];
-
-const backgroundParticles = [
-    {
-        id: 1,
-        icon: "ic:round-work",
-        class: "text-blue-400",
-        style: { top: "15%", left: "10%" }
-    },
-    {
-        id: 2,
-        icon: "ic:round-star",
-        class: "text-yellow-400",
-        style: { top: "25%", right: "15%" }
-    },
-    {
-        id: 3,
-        icon: "ic:round-trending-up",
-        class: "text-green-400",
-        style: { top: "45%", left: "8%" }
-    },
-    {
-        id: 4,
-        icon: "ic:round-emoji-events",
-        class: "text-orange-400",
-        style: { top: "65%", right: "12%" }
-    },
-    {
-        id: 5,
-        icon: "ic:round-lightbulb",
-        class: "text-purple-400",
-        style: { top: "80%", left: "15%" }
-    }
-];
-
 const filteredProjects = computed(() => {
     const filtered =
         activeFilter.value === "all"
@@ -514,63 +444,4 @@ onMounted(() => {
 </script>
 
 <style scoped>
-
-@keyframes scale-in {
-    from {
-        opacity: 0;
-        transform: scale(0.9);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-@keyframes bounce-subtle {
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-3px);
-    }
-}
-
-.animate-blob {
-    animation: blob 12s infinite;
-}
-
-.animate-float {
-    animation: float 10s ease-in-out infinite;
-}
-
-.animate-fade-in {
-    animation: fade-in 1s ease-out;
-}
-
-.animate-fade-in-up {
-    animation: fade-in-up 0.6s ease-out forwards;
-    opacity: 0;
-}
-
-.animate-scale-in {
-    animation: scale-in 0.3s ease-out;
-}
-
-.animate-gradient {
-    background-size: 200% 200%;
-    animation: gradient 6s ease infinite;
-}
-
-.animate-bounce-subtle {
-    animation: bounce-subtle 3s infinite;
-}
-
-.animation-delay-2000 {
-    animation-delay: 2s;
-}
-
-.animation-delay-4000 {
-    animation-delay: 4s;
-}
 </style>

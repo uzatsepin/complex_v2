@@ -31,24 +31,28 @@
 
                 <!-- Desktop CTA -->
                 <div class="hidden lg:flex items-center space-x-4">
-                <PrimaryButton
-                            size="sm"
-                            icon="ic:round-rocket-launch">
-                            Розпочати проект
-                        </PrimaryButton>
-                    <div class="relative" ref="languageSwitcher">
+                    <PrimaryButton
+                        size="sm"
+                        icon="ic:round-rocket-launch">
+                        Розпочати проект
+                    </PrimaryButton>
+                    <div
+                        class="relative"
+                        ref="languageSwitcher">
                         <button
                             @click="toggleLanguageMenu"
                             class="flex items-center space-x-2 px-3 py-2 rounded-lg text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition-all duration-200"
                             :class="{ 'text-gray-900 bg-gray-100': isLanguageMenuOpen }">
-                            <Icon :name="currentLanguage?.flag || 'emojione:flag-for-ukraine'" class="w-5 h-5" />
-                            <span class="text-sm font-medium">{{ currentLanguage?.code.toUpperCase() || 'UA' }}</span>
-                            <Icon 
-                                name="ic:round-keyboard-arrow-down" 
+                            <Icon
+                                :name="currentLanguage?.flag || 'emojione:flag-for-ukraine'"
+                                class="w-5 h-5" />
+                            <span class="text-sm font-medium">{{ currentLanguage?.code.toUpperCase() || "UA" }}</span>
+                            <Icon
+                                name="ic:round-keyboard-arrow-down"
                                 class="w-4 h-4 transition-transform duration-200"
                                 :class="{ 'rotate-180': isLanguageMenuOpen }" />
                         </button>
-                        
+
                         <!-- Language Dropdown -->
                         <Transition
                             enter-active-class="transition duration-200 ease-out"
@@ -66,17 +70,18 @@
                                     @click="switchLanguage(lang.code)"
                                     class="w-full flex items-center space-x-3 px-4 py-3 text-left text-gray-700 hover:bg-gray-100 transition-colors duration-200"
                                     :class="{ 'bg-blue-50 text-blue-700': currentLanguage?.code === lang.code }">
-                                    <Icon :name="lang.flag" class="w-5 h-5" />
+                                    <Icon
+                                        :name="lang.flag"
+                                        class="w-5 h-5" />
                                     <span class="font-medium">{{ lang.name }}</span>
-                                    <Icon 
+                                    <Icon
                                         v-if="currentLanguage?.code === lang.code"
-                                        name="ic:round-check" 
+                                        name="ic:round-check"
                                         class="w-4 h-4 ml-auto text-blue-600" />
                                 </button>
                             </div>
                         </Transition>
                     </div>
-
                 </div>
 
                 <!-- Mobile menu button -->
@@ -127,15 +132,19 @@
                                     :key="lang.code"
                                     @click="switchLanguage(lang.code)"
                                     class="flex items-center space-x-1 px-2 py-1 rounded-md transition-colors duration-200"
-                                    :class="currentLanguage?.code === lang.code 
-                                        ? 'bg-blue-100 text-blue-700' 
-                                        : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200'">
-                                    <Icon :name="lang.flag" class="w-4 h-4" />
+                                    :class="
+                                        currentLanguage?.code === lang.code
+                                            ? 'bg-blue-100 text-blue-700'
+                                            : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200'
+                                    ">
+                                    <Icon
+                                        :name="lang.flag"
+                                        class="w-4 h-4" />
                                     <span class="text-xs font-medium">{{ lang.code.toUpperCase() }}</span>
                                 </button>
                             </div>
                         </div>
-                        
+
                         <SecondaryButton
                             variant="ghost"
                             class="w-full justify-center"
@@ -173,13 +182,13 @@ interface Language {
 }
 
 const availableLanguages: Language[] = [
-    { code: 'ua', name: 'Українська', flag: 'emojione:flag-for-ukraine' },
-    { code: 'ru', name: 'Русский', flag: 'emojione:flag-for-russia' },
-    { code: 'en', name: 'English', flag: 'emojione:flag-for-united-states' }
+    { code: "ua", name: "Українська", flag: "emojione:flag-for-ukraine" },
+    { code: "ru", name: "Русский", flag: "emojione:flag-for-russia" },
+    { code: "en", name: "English", flag: "emojione:flag-for-united-states" }
 ];
 
 const currentLanguage = computed(() => {
-    return availableLanguages.find(lang => lang.code === locale.value) || availableLanguages[0];
+    return availableLanguages.find((lang) => lang.code === locale.value) || availableLanguages[0];
 });
 
 const navigation = [
@@ -213,27 +222,27 @@ const closeLanguageMenu = () => {
 const switchLanguage = async (langCode: string) => {
     try {
         // Validate the language code
-        const validLanguage = availableLanguages.find(lang => lang.code === langCode);
+        const validLanguage = availableLanguages.find((lang) => lang.code === langCode);
         if (!validLanguage) {
-            console.error('Invalid language code:', langCode);
+            console.error("Invalid language code:", langCode);
             return;
         }
-        
+
         // Get the localized path for the current route
         const route = useRoute();
         const localizedPath = switchLocalePath(langCode as any);
-        
+
         // Set the locale
         await setLocale(langCode as any);
-        
+
         // Navigate to the localized version of the current page
         await navigateTo(localizedPath);
-        
+
         // Close menus
         closeLanguageMenu();
         closeMobileMenu();
     } catch (error) {
-        console.error('Error switching language:', error);
+        console.error("Error switching language:", error);
     }
 };
 
@@ -242,12 +251,12 @@ const handleClickOutside = (event: Event) => {
     const target = event.target as Element;
     const header = document.querySelector("header");
     const languageMenu = languageSwitcher.value as HTMLElement | null;
-    
+
     // Close mobile menu if clicked outside header
     if (header && !header.contains(target)) {
         closeMobileMenu();
     }
-    
+
     // Close language menu if clicked outside language switcher
     if (languageMenu && !languageMenu.contains(target)) {
         closeLanguageMenu();

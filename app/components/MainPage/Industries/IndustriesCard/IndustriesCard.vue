@@ -1,12 +1,6 @@
 <template>
     <div
-        class="industry-card group relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer transform hover:-translate-y-3 border border-white/50"
-        :class="`animation-delay-${(index + 1) * 100}`">
-        <!-- Card background pattern -->
-        <div
-            class="absolute inset-0 opacity-0 group-hover:opacity-5 transition-opacity duration-500 rounded-2xl"
-            :style="`background: ${industry.pattern}`"></div>
-
+        class="group relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer transform hover:-translate-y-3 border border-white/50">
         <!-- Hover glow effect -->
         <div
             class="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500 rounded-2xl blur-xl"
@@ -27,7 +21,7 @@
             <!-- Success indicator -->
             <div
                 v-if="industry.isTop"
-                class="absolute -top-1 -right-1 w-6 h-6 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center animate-pulse">
+                class="absolute -top-1 -right-1 w-6 h-6 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center">
                 <Icon
                     name="ic:round-star"
                     class="w-3 h-3 text-white" />

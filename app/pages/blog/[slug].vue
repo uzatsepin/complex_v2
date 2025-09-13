@@ -25,9 +25,9 @@
                 <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative">
                     <!-- Breadcrumb -->
                     <nav class="max-w-6xl mx-auto flex items-center space-x-2 text-sm text-white/80 mb-8 animate-fade-in">
-                        <NuxtLink to="/" class="hover:text-white transition-colors">{{ $t('blog.page.home') }}</NuxtLink>
+                        <NuxtLink to="/" class="hover:text-white transition-colors">{{ $t('home') }}</NuxtLink>
                         <Icon name="ic:round-chevron-right" class="w-4 h-4" />
-                        <NuxtLink to="/blog" class="hover:text-white transition-colors">{{ $t('blog.page.blog') }}</NuxtLink>
+                        <NuxtLink to="/blog" class="hover:text-white transition-colors">{{ $t('blogPage.name') }}</NuxtLink>
                         <Icon name="ic:round-chevron-right" class="w-4 h-4" />
                         <span class="text-white">{{ article.title }}</span>
                     </nav>
@@ -43,12 +43,12 @@
                             
                             <div class="flex items-center text-white/80 text-sm">
                                 <Icon name="ic:round-access-time" class="w-4 h-4 mr-1" />
-                                {{ article.readTime }} {{ $t('blog.article.time') }}
+                                {{ article.readTime }} {{ $t('blogPage.time') }}
                             </div>
                             
                             <div class="flex items-center text-white/80 text-sm">
                                 <Icon name="ic:round-visibility" class="w-4 h-4 mr-1" />
-                                {{ article.views }} переглядів
+                                {{ article.views }} {{ $t('blogPage.watched') }}
                             </div>
                         </div>
 
@@ -70,7 +70,7 @@
                             </div>
 
                             <div class="flex items-center gap-3">
-                                <span class="text-white/70 text-sm mr-2">Поділитися:</span>
+                                <span class="text-white/70 text-sm mr-2">{{ $t('blogPage.share') }}</span>
                                 <button class="w-10 h-10 bg-white/20 hover:bg-white/30 text-white rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110">
                                     <Icon name="ic:round-share" class="w-5 h-5" />
                                 </button>
@@ -97,7 +97,7 @@
 
                         <!-- Tags -->
                         <div class="mt-12 pt-8 border-t border-gray-200">
-                            <h3 class="text-lg font-semibold text-gray-900 mb-4">Теги:</h3>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-4">{{ $t('blogPage.tags') }}</h3>
                             <div class="flex flex-wrap gap-3">
                                 <span
                                     v-for="tag in article.tags"
@@ -117,10 +117,10 @@
                 <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="text-center mb-12">
                         <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-                            Схожі статті
+                            {{ $t('blogPage.similarArticles') }}
                         </h2>
                         <p class="text-gray-600 max-w-2xl mx-auto">
-                            Рекомендуємо прочитати ці матеріали для поглиблення знань
+                            {{ $t('blogPage.similarArticlesDescr') }}
                         </p>
                     </div>
 

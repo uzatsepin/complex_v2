@@ -81,3 +81,33 @@ export interface IReview {
     date: string;
     category: string;
 }
+
+export interface IWorkStep {
+    id: number;
+    title: string;
+    description: string;
+    detailedDescription: string;
+    duration: string;
+    team: string;
+    deliverables: string[];
+    tools: string[];
+    tasks: string[];
+    results: string[];
+    progress: number;
+    icon: string;
+    iconBg: string;
+    iconColor: string;
+    nodeBg: string;
+    nodeInner: string;
+    glowColor: string;
+    isPopular: boolean;
+}
+
+export interface IProcessBenefits {
+    id: number;
+    title: string;
+    description: string;
+    icon: string;
+    iconBg: string;
+    iconColor: string;
+}

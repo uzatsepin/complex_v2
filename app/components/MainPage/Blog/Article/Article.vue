@@ -1,8 +1,7 @@
 <template>
-    <NuxtLink :to="`/blog/${post.slug || post.id}`">
+    <NuxtLink :to="$localePath(`/blog/${post.slug || post.id}`)">
         <article
-            class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer transform hover:-translate-y-2 border border-gray-100 overflow-hidden animate-fade-in-up"
-            :style="{ animationDelay: `${index * 0.15}s` }">
+            class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer transform hover:-translate-y-2 border border-gray-100 overflow-hidden">
         <!-- Article Image -->
         <div class="relative h-48 overflow-hidden">
             <NuxtImg
@@ -27,7 +26,7 @@
             <!-- Popular badge -->
             <div
                 v-if="post.isPopular"
-                class="absolute bottom-4 right-4 bg-gradient-to-r from-orange-400 to-red-500 text-white px-3 py-1 rounded-full text-xs font-medium flex items-center gap-1 animate-pulse">
+                class="absolute bottom-4 right-4 bg-gradient-to-r from-orange-400 to-red-500 text-white px-3 py-1 rounded-full text-xs font-medium flex items-center gap-1">
                 <Icon
                     name="ic:round-local-fire-department"
                     class="w-3 h-3" />
@@ -92,8 +91,8 @@
                 </div>
 
                 <!-- Read more button -->
-                <button class="flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium text-sm transition-colors duration-300 group-hover:gap-3">
-                    {{ $t('blog.article.read') }}
+                <button class="flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium text-sm transition duration-300 group-hover:gap-3">
+                    {{ $t('mainPage.blog.readArticle') }}
                     <Icon
                         name="ic:round-arrow-forward"
                         class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />

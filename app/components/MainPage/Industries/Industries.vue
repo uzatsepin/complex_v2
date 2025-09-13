@@ -1,55 +1,25 @@
 <template>
     <section class="py-20 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
-        <!-- Background Elements -->
-        <div class="absolute inset-0">
-            <!-- Floating particles -->
-            <div class="absolute inset-0">
-                <div
-                    v-for="particle in backgroundParticles"
-                    :key="particle.id"
-                    :class="particle.class"
-                    :style="particle.style"
-                    class="absolute pointer-events-none animate-float opacity-40">
-                    <Icon
-                        :name="particle.icon"
-                        class="w-5 h-5" />
-                </div>
-            </div>
-
-            <!-- Decorative orbs -->
-            <div
-                class="absolute top-20 left-10 w-80 h-80 bg-gradient-to-br from-blue-400/15 to-purple-400/15 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
-            <div
-                class="absolute bottom-20 right-10 w-72 h-72 bg-gradient-to-br from-green-400/15 to-cyan-400/15 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-3000"></div>
-
-            <!-- Grid pattern -->
-            <div class="absolute inset-0 opacity-20">
-                <div
-                    class="absolute inset-0"
-                    style="background-image: radial-gradient(circle at 2px 2px, rgba(59, 130, 246, 0.3) 1px, transparent 0); background-size: 60px 60px"></div>
-            </div>
-        </div>
-
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative">
             <!-- Section Header -->
-            <div class="text-center mb-16 animate-fade-in">
+            <div class="text-center mb-16">
                 <div
-                    class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-100 to-purple-100 text-blue-800 rounded-full text-sm font-medium mb-6 animate-bounce-subtle">
+                    class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-100 to-purple-100 text-blue-800 rounded-full text-sm font-medium mb-6">
                     <Icon
                         name="ic:round-business-center"
                         class="w-4 h-4 mr-2 text-blue-600" />
-                    Наші індустрії
+                    {{ $t('mainPage.industries.badgeTitle') }}
                 </div>
 
                 <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
-                    Експертиза у
-                    <span class="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent animate-gradient">
-                        різних галузях
+                    {{ $t('mainPage.industries.title') }}
+                    <span class="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+                        {{ $t('mainPage.industries.titleHighlight') }}
                     </span>
                 </h2>
 
                 <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                    Працюємо з компаніями різних сфер діяльності, розуміємо специфіку кожної індустрії та створюємо рішення, які дійсно працюють для вашого
+                    {{ $t('mainPage.industries.descr') }}
                     бізнесу
                 </p>
             </div>
@@ -234,125 +204,7 @@ const industries: Iindustry[] = [
         caseStudy: "Кейс: Онлайн-академія з 10k+ студентів"
     }
 ];
-
-const backgroundParticles = [
-    {
-        id: 1,
-        icon: "ic:round-trending-up",
-        class: "text-blue-400",
-        style: { top: "12%", left: "8%" }
-    },
-    {
-        id: 2,
-        icon: "ic:round-lightbulb",
-        class: "text-yellow-400",
-        style: { top: "20%", right: "15%" }
-    },
-    {
-        id: 3,
-        icon: "ic:round-rocket-launch",
-        class: "text-purple-400",
-        style: { top: "35%", left: "5%" }
-    },
-    {
-        id: 4,
-        icon: "ic:round-auto-graph",
-        class: "text-green-400",
-        style: { top: "55%", right: "8%" }
-    },
-    {
-        id: 5,
-        icon: "ic:round-psychology",
-        class: "text-pink-400",
-        style: { top: "70%", left: "12%" }
-    },
-    {
-        id: 6,
-        icon: "ic:round-settings",
-        class: "text-gray-400",
-        style: { top: "80%", right: "20%" }
-    }
-];
 </script>
 
 <style scoped>
-
-@keyframes bounce-subtle {
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-3px);
-    }
-}
-
-.animate-blob {
-    animation: blob 10s infinite;
-}
-
-.animate-float {
-    animation: float 9s ease-in-out infinite;
-}
-
-.animate-fade-in {
-    animation: fade-in 1s ease-out;
-}
-
-.animate-gradient {
-    background-size: 200% 200%;
-    animation: gradient 5s ease infinite;
-}
-
-.animate-bounce-subtle {
-    animation: bounce-subtle 3s infinite;
-}
-
-.animation-delay-100 {
-    animation-delay: 0.1s;
-}
-.animation-delay-200 {
-    animation-delay: 0.2s;
-}
-.animation-delay-300 {
-    animation-delay: 0.3s;
-}
-.animation-delay-400 {
-    animation-delay: 0.4s;
-}
-.animation-delay-500 {
-    animation-delay: 0.5s;
-}
-.animation-delay-600 {
-    animation-delay: 0.6s;
-}
-.animation-delay-700 {
-    animation-delay: 0.7s;
-}
-.animation-delay-800 {
-    animation-delay: 0.8s;
-}
-.animation-delay-2000 {
-    animation-delay: 2s;
-}
-.animation-delay-3000 {
-    animation-delay: 3s;
-}
-
-.industry-card {
-    animation: fade-in 0.6s ease-out forwards;
-    opacity: 0;
-    backdrop-filter: blur(8px);
-}
-
-.industry-card:hover {
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.2);
-    transform: translateY(-12px) scale(1.02);
-}
-
-.stat-item:hover {
-    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(147, 51, 234, 0.1));
-    border-radius: 16px;
-    padding: 16px;
-}
 </style>

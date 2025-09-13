@@ -17,11 +17,9 @@
                     <!-- Badge -->
                     <div
                         class="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium cursor-pointer transform hover:scale-105 transition-all duration-300 animate-bounce-subtle">
-                        <ClientOnly>
                             <Icon
                             name="ic:round-star"
                             class="w-4 h-4 mr-2 text-blue-600" />
-                        </ClientOnly>
                         {{$t("mainPage.hero.badgeTitle") }}
                     </div>
 
@@ -51,15 +49,14 @@
                     <!-- CTA Buttons -->
                     <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
                         <PrimaryButton
-                            size="lg"
+                            size="sm"
                             icon="ic:round-rocket-launch">
                             {{ $t("startProject") }}
                         </PrimaryButton>
                         <SecondaryButton
-                            size="lg"
+                            size="sm"
                             icon="ic:round-play-arrow"
-                            variant="ghost"
-                            class="cta-secondary">
+                            variant="ghost">
                             {{ $t("sawCases") }}
                         </SecondaryButton>
                     </div>
@@ -153,25 +150,4 @@ const trustedCompanies = ["TechCorp", "StartupHub", "BusinessPro"];
 
 </script>
 
-<style scoped>
-
-@keyframes bounce-subtle {
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-3px);
-    }
-}
-
-@keyframes pulse-subtle {
-    0%,
-    100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.02);
-    }
-}
-</style>
+<style scoped></style>

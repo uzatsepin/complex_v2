@@ -6,30 +6,10 @@
         <main>
             <!-- Hero Section -->
             <section class="min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50 relative overflow-hidden pt-20">
-                <!-- Background Elements -->
-                <div class="absolute inset-0">
-                    <!-- Animated gradient orbs -->
-                    <div class="absolute top-20 left-10 w-72 h-72 bg-blue-400/20 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
-                    <div
-                        class="absolute top-20 right-10 w-72 h-72 bg-purple-400/20 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
-                    <div
-                        class="absolute -bottom-8 left-20 w-72 h-72 bg-pink-400/20 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
-
-                    <!-- Grid pattern -->
-                    <div class="absolute inset-0 opacity-30">
-                        <div
-                            class="absolute inset-0"
-                            style="
-                                background-image: radial-gradient(circle at 1px 1px, rgba(229, 231, 235, 0.6) 1px, transparent 0);
-                                background-size: 40px 40px;
-                            "></div>
-                    </div>
-                </div>
-
                 <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative">
                     <div class="flex flex-col lg:flex-row items-center justify-between min-h-screen py-12">
                         <!-- Left Content -->
-                        <div class="lg:w-1/2 text-center lg:text-left space-y-8 animate-fade-in">
+                        <div class="lg:w-1/2 text-center lg:text-left space-y-8">
                             <!-- Breadcrumb -->
                             <nav class="mb-6">
                                 <ol class="flex items-center justify-center lg:justify-start space-x-2 text-sm text-gray-600">
@@ -37,37 +17,40 @@
                                         <NuxtLink
                                             to="/"
                                             class="hover:text-blue-600 transition-colors">
-                                            {{ $t('home') }}
+                                            {{ $t("home") }}
                                         </NuxtLink>
                                     </li>
                                     <li class="flex items-center">
                                         <Icon
                                             name="ic:round-chevron-right"
                                             class="w-4 h-4 mx-2" />
-                                        <span class="text-gray-900 font-medium">{{ $t('reviewsPage.reviews') }}</span>
+                                        <span class="text-gray-900 font-medium">{{ $t("reviewsPage.reviews") }}</span>
                                     </li>
                                 </ol>
                             </nav>
 
                             <!-- Badge -->
                             <div
-                                class="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium cursor-pointer transform hover:scale-105 transition-all duration-300 animate-bounce-subtle">
+                                class="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium cursor-pointer transform hover:scale-105 transition-all duration-300">
                                 <Icon
                                     name="ic:round-star"
-                                    class="w-4 h-4 mr-2 text-blue-600" size="16" />
-                                {{ $t('reviewsPage.badgeTitle') }}
+                                    class="w-4 h-4 mr-2 text-blue-600"
+                                    size="16" />
+                                {{ $t("reviewsPage.badgeTitle") }}
                             </div>
 
                             <!-- Main Headline -->
                             <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-                                {{ $t('reviewsPage.title') }}
-                                <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent animate-gradient"> {{ $t('reviewsPage.titleHighlight') }} </span>
-                                {{ $t('reviewsPage.titleHighlightPart') }}
+                                {{ $t("reviewsPage.title") }}
+                                <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                                    {{ $t("reviewsPage.titleHighlight") }}
+                                </span>
+                                {{ $t("reviewsPage.titleHighlightPart") }}
                             </h1>
 
                             <!-- Subtitle -->
                             <p class="text-xl text-gray-600 max-w-2xl leading-relaxed">
-                                {{ $t('reviewsPage.descr') }}
+                                {{ $t("reviewsPage.descr") }}
                             </p>
 
                             <!-- Stats -->
@@ -84,12 +67,12 @@
                             <!-- CTA Buttons -->
                             <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
                                 <PrimaryButton
-                                    size="lg"
+                                    size="sm"
                                     icon="ic:round-rate-review">
                                     Залишити відгук
                                 </PrimaryButton>
                                 <SecondaryButton
-                                    size="lg"
+                                    size="sm"
                                     icon="ic:round-arrow-downward"
                                     variant="ghost">
                                     Читати відгуки
@@ -103,22 +86,12 @@
                             <div class="relative max-w-md mx-auto">
                                 <!-- Floating Review Cards -->
                                 <div
-                                    class="absolute -top-8 -left-8 w-64 h-32 bg-gradient-to-br from-green-500 to-green-600 rounded-3xl p-4 text-white shadow-2xl animate-float z-10">
+                                    class="absolute -top-8 -left-8 bg-gradient-to-br from-green-500 to-green-600 rounded-3xl p-4 text-white shadow-2xl animate-float z-10">
                                     <div class="flex items-start justify-between mb-2">
                                         <div class="flex text-yellow-300">
                                             <Icon
-                                                name="ic:round-star"
-                                                class="w-4 h-4" />
-                                            <Icon
-                                                name="ic:round-star"
-                                                class="w-4 h-4" />
-                                            <Icon
-                                                name="ic:round-star"
-                                                class="w-4 h-4" />
-                                            <Icon
-                                                name="ic:round-star"
-                                                class="w-4 h-4" />
-                                            <Icon
+                                                v-for="n in 5"
+                                                :key="n"
                                                 name="ic:round-star"
                                                 class="w-4 h-4" />
                                         </div>
@@ -131,22 +104,12 @@
                                 </div>
 
                                 <div
-                                    class="absolute -top-4 -right-4 w-56 h-28 bg-gradient-to-br from-purple-500 to-purple-600 rounded-3xl p-4 text-white shadow-2xl animate-float animation-delay-1000 z-10">
+                                    class="absolute -top-4 -right-4 bg-gradient-to-br from-purple-500 to-purple-600 rounded-3xl p-4 text-white shadow-2xl animate-float animation-delay-1000 z-10">
                                     <div class="flex items-start justify-between mb-2">
                                         <div class="flex text-yellow-300">
                                             <Icon
-                                                name="ic:round-star"
-                                                class="w-4 h-4" />
-                                            <Icon
-                                                name="ic:round-star"
-                                                class="w-4 h-4" />
-                                            <Icon
-                                                name="ic:round-star"
-                                                class="w-4 h-4" />
-                                            <Icon
-                                                name="ic:round-star"
-                                                class="w-4 h-4" />
-                                            <Icon
+                                                v-for="n in 5"
+                                                :key="n"
                                                 name="ic:round-star"
                                                 class="w-4 h-4" />
                                         </div>
@@ -159,22 +122,12 @@
                                 </div>
 
                                 <div
-                                    class="absolute -bottom-6 -left-6 w-60 h-24 bg-gradient-to-br from-orange-500 to-orange-600 rounded-3xl p-4 text-white shadow-2xl animate-float animation-delay-2000 z-10">
+                                    class="absolute -bottom-6 -left-6 bg-gradient-to-br from-orange-500 to-orange-600 rounded-3xl p-4 text-white shadow-2xl animate-float animation-delay-2000 z-10">
                                     <div class="flex items-start justify-between mb-2">
                                         <div class="flex text-yellow-300">
                                             <Icon
-                                                name="ic:round-star"
-                                                class="w-4 h-4" />
-                                            <Icon
-                                                name="ic:round-star"
-                                                class="w-4 h-4" />
-                                            <Icon
-                                                name="ic:round-star"
-                                                class="w-4 h-4" />
-                                            <Icon
-                                                name="ic:round-star"
-                                                class="w-4 h-4" />
-                                            <Icon
+                                                v-for="n in 5"
+                                                :key="n"
                                                 name="ic:round-star"
                                                 class="w-4 h-4" />
                                         </div>
@@ -376,7 +329,6 @@ const heroStats = [
     { value: "100%", label: "Задоволених" }
 ];
 
-
 // Background particles for reviews section
 const backgroundParticles = [
     {
@@ -558,73 +510,3 @@ const loadMoreReviews = () => {
     }, 1500);
 };
 </script>
-
-<style scoped>
-
-@keyframes bounce-subtle {
-    0%,
-    20%,
-    53%,
-    80%,
-    100% {
-        transform: translate3d(0, 0, 0);
-    }
-    40%,
-    43% {
-        transform: translate3d(0, -8px, 0);
-    }
-    70% {
-        transform: translate3d(0, -4px, 0);
-    }
-    90% {
-        transform: translate3d(0, -2px, 0);
-    }
-}
-
-/* Animation classes */
-.animate-blob {
-    animation: blob 7s infinite;
-}
-
-.animate-gradient {
-    background-size: 200% 200%;
-    animation: gradient 3s ease infinite;
-}
-
-.animate-fade-in {
-    animation: fade-in 0.8s ease-out forwards;
-}
-
-.animate-fade-in-up {
-    animation: fade-in-up 0.8s ease-out forwards;
-}
-
-.animate-float {
-    animation: float 6s ease-in-out infinite;
-}
-
-.animate-bounce-subtle {
-    animation: bounce-subtle 2s infinite;
-}
-
-/* Animation delays */
-.animation-delay-200 {
-    animation-delay: 0.2s;
-}
-
-.animation-delay-400 {
-    animation-delay: 0.4s;
-}
-
-.animation-delay-1000 {
-    animation-delay: 1s;
-}
-
-.animation-delay-2000 {
-    animation-delay: 2s;
-}
-
-.animation-delay-4000 {
-    animation-delay: 4s;
-}
-</style>

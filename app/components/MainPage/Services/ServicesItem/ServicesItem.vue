@@ -1,8 +1,7 @@
 <template>
-    <NuxtLink :to="`/services/${service.slug}`">
+    <NuxtLink :to="$localePath(`/services/${service.slug}`)">
         <div
-            class="service-card group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer transform hover:-translate-y-2 border border-gray-100"
-            :class="`animation-delay-${(index + 1) * 200}`">
+            class="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer transform hover:-translate-y-2 border border-gray-100">
             <!-- Card background gradient -->
             <div
                 class="absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-2xl"
@@ -24,7 +23,7 @@
                 <!-- Floating badge -->
                 <div
                     v-if="service.badge"
-                    class="absolute -top-2 -right-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white text-xs px-2 py-1 rounded-full animate-pulse-subtle">
+                    class="absolute -top-2 -left-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white text-xs px-2 py-1 rounded-full">
                     {{ service.badge }}
                 </div>
             </div>

@@ -1,58 +1,28 @@
 <template>
     <section class="py-20 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
-        <!-- Background Elements -->
-        <div class="absolute inset-0">
-            <!-- Floating particles -->
-            <div class="absolute inset-0">
-                <div
-                    v-for="particle in backgroundParticles"
-                    :key="particle.id"
-                    :class="particle.class"
-                    :style="particle.style"
-                    class="absolute pointer-events-none animate-float opacity-30">
-                    <Icon
-                        :name="particle.icon"
-                        class="w-5 h-5" />
-                </div>
-            </div>
-
-            <!-- Decorative orbs -->
-            <div
-                class="absolute top-20 left-10 w-80 h-80 bg-gradient-to-br from-blue-400/10 to-purple-400/10 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
-            <div
-                class="absolute bottom-20 right-10 w-72 h-72 bg-gradient-to-br from-green-400/10 to-cyan-400/10 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000"></div>
-
-            <!-- Grid pattern -->
-            <div class="absolute inset-0 opacity-20">
-                <div
-                    class="absolute inset-0"
-                    style="background-image: radial-gradient(circle at 1px 1px, rgba(59, 130, 246, 0.3) 1px, transparent 0); background-size: 40px 40px"></div>
-            </div>
-        </div>
-
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative">
             <!-- Section Header -->
-            <div class="text-center mb-16 animate-fade-in">
+            <div class="text-center mb-16">
                 <div
-                    class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-100 to-purple-100 text-blue-800 rounded-full text-sm font-medium mb-6 animate-bounce-subtle">
+                    class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-100 to-purple-100 text-blue-800 rounded-full text-sm font-medium mb-6">
                     <Icon
                         name="ic:round-article"
                         class="w-4 h-4 mr-2 text-blue-600" />
-                    Наш блог
+                    {{ $t('mainPage.blog.badgeTitle') }}
                 </div>
 
                 <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
-                    Корисні статті про
-                    <span class="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent animate-gradient"> веб-розробку </span>
+                    {{ $t('mainPage.blog.title') }}
+                    <span class="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent"> {{ $t('mainPage.blog.titleHighlight') }} </span>
                 </h2>
 
                 <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                    Діліися досвідом, трендами та практичними порадами з світу веб-розробки, дизайну та цифрового маркетингу
+                    {{ $t('mainPage.blog.descr') }}
                 </p>
             </div>
 
             <!-- Filter Tabs -->
-            <div class="flex flex-wrap justify-center gap-3 mb-12 animate-slide-in">
+            <div class="flex flex-wrap justify-center gap-3 mb-12">
                 <button
                     v-for="category in blogCategories"
                     :key="category.id"
@@ -96,7 +66,7 @@
                         v-else
                         name="ic:round-refresh"
                         class="w-5 h-5 animate-spin" />
-                    {{ isLoading ? "Завантаження..." : "Показати більше статей" }}
+                    {{ isLoading ? $t('mainPage.blog.loading') : $t('mainPage.blog.loadMore') }}
                 </button>
             </div>
         </div>
@@ -332,79 +302,3 @@ const loadMorePosts = async () => {
     isLoading.value = false;
 };
 </script>
-
-<style scoped>
-
-@keyframes slide-in {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes bounce-subtle {
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-3px);
-    }
-}
-
-.animate-blob {
-    animation: blob 15s infinite;
-}
-
-.animate-float {
-    animation: float 12s ease-in-out infinite;
-}
-
-.animate-fade-in {
-    animation: fade-in 1s ease-out;
-}
-
-.animate-fade-in-up {
-    animation: fade-in-up 0.6s ease-out forwards;
-    opacity: 0;
-}
-
-.animate-slide-in {
-    animation: slide-in 0.8s ease-out;
-}
-
-.animate-gradient {
-    background-size: 200% 200%;
-    animation: gradient 6s ease infinite;
-}
-
-.animate-bounce-subtle {
-    animation: bounce-subtle 3s infinite;
-}
-
-.animation-delay-2000 {
-    animation-delay: 2s;
-}
-
-.animation-delay-4000 {
-    animation-delay: 4s;
-}
-
-.stat-item:hover {
-    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(147, 51, 234, 0.1));
-    border-radius: 16px;
-    padding: 16px;
-}
-
-.line-clamp-3 {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    line-clamp: 3;
-}
-</style>

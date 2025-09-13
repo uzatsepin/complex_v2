@@ -1,53 +1,25 @@
 <template>
     <section class="py-20 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
-        <!-- Background Elements -->
-        <div class="absolute inset-0">
-            <!-- Floating particles -->
-            <div class="absolute inset-0">
-                <div
-                    v-for="particle in backgroundParticles"
-                    :key="particle.id"
-                    :class="particle.class"
-                    :style="particle.style"
-                    class="absolute pointer-events-none animate-float opacity-40">
-                    <Icon
-                        :name="particle.icon"
-                        class="w-5 h-5" />
-                </div>
-            </div>
-
-            <!-- Decorative orbs -->
-            <div
-                class="absolute top-20 left-10 w-80 h-80 bg-gradient-to-br from-blue-400/10 to-purple-400/10 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
-
-            <!-- Grid pattern -->
-            <div class="absolute inset-0 opacity-20">
-                <div
-                    class="absolute inset-0"
-                    style="background-image: radial-gradient(circle at 2px 2px, rgba(59, 130, 246, 0.3) 1px, transparent 0); background-size: 60px 60px"></div>
-            </div>
-        </div>
-
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative">
             <!-- Section Header -->
             <div class="text-center mb-20 animate-fade-in">
                 <div
-                    class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-100 to-purple-100 text-blue-800 rounded-full text-sm font-medium mb-6 animate-bounce-subtle">
+                    class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-100 to-purple-100 text-blue-800 rounded-full text-sm font-medium mb-6">
                     <Icon
                         name="ic:round-timeline"
                         class="w-4 h-4 mr-2 text-blue-600" />
-                    Як ми працюємо
+                    {{ $t('mainPage.steps.badgeTitle') }}
                 </div>
 
                 <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-                    Наші етапи роботи —
-                    <span class="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent animate-gradient block sm:inline">
-                        від ідеї до запуску
+                    {{ $t('mainPage.steps.title') }}
+                    <span class="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent block sm:inline">
+                        {{ $t('mainPage.steps.titleHighlight') }}
                     </span>
                 </h2>
 
                 <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                    Прозорий та структурований процес роботи. Ви завжди знаєте, на якому етапі знаходиться ваш проект та що відбувається далі
+                    {{ $t('mainPage.steps.descr') }}
                 </p>
             </div>
 
@@ -114,7 +86,7 @@
 
                                 <!-- Deliverables -->
                                 <div class="mb-6">
-                                    <h4 class="text-sm font-semibold text-gray-900 mb-3">Що ви отримаєте:</h4>
+                                    <h4 class="text-sm font-semibold text-gray-900 mb-3">{{ $t('mainPage.steps.whatYouGet') }}</h4>
                                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
                                         <div
                                             v-for="deliverable in step.deliverables"
@@ -140,9 +112,9 @@
 
                                 <!-- Progress indicator -->
                                 <div class="flex items-center justify-between pt-4 border-t border-gray-100">
-                                    <div class="text-sm text-gray-500">Прогрес: {{ step.progress }}%</div>
+                                    <div class="text-sm text-gray-500">{{ $t('mainPage.steps.progress') }} {{ step.progress }}%</div>
                                     <div class="flex items-center gap-2 text-sm text-blue-600 font-medium group-hover:gap-3 transition-all duration-300">
-                                        Детальніше
+                                        {{ $t('mainPage.steps.details') }}
                                         <Icon
                                             name="ic:round-arrow-forward"
                                             class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -197,7 +169,7 @@
                                                 <div class="h-3 bg-gray-200 rounded w-5/6"></div>
                                             </div>
                                         </div>
-                                        <div class="text-center text-sm text-gray-600">Аналіз вимог</div>
+                                        <div class="text-center text-sm text-gray-600">{{ $t('mainPage.steps.analyticRequirements') }}</div>
                                     </div>
 
                                     <div
@@ -215,7 +187,7 @@
                                                     class="w-8 h-8 text-purple-500" />
                                             </div>
                                         </div>
-                                        <div class="text-center text-sm text-gray-600">UI/UX дизайн</div>
+                                        <div class="text-center text-sm text-gray-600">{{ $t('mainPage.steps.uiUxDesign') }}</div>
                                     </div>
 
                                     <div
@@ -227,7 +199,7 @@
                                             <div class="ml-4">&lt;h1&gt;Hello World&lt;/h1&gt;</div>
                                             <div>&lt;/div&gt;</div>
                                         </div>
-                                        <div class="text-center text-sm text-gray-600">Розробка</div>
+                                        <div class="text-center text-sm text-gray-600">{{ $t('mainPage.steps.development') }}</div>
                                     </div>
 
                                     <div
@@ -257,7 +229,7 @@
                                                 <span class="text-xs text-yellow-600">●</span>
                                             </div>
                                         </div>
-                                        <div class="text-center text-sm text-gray-600">Тестування</div>
+                                        <div class="text-center text-sm text-gray-600">{{ $t('mainPage.steps.testing') }}</div>
                                     </div>
 
                                     <div
@@ -270,7 +242,7 @@
                                                 class="w-12 h-12 mx-auto mb-2" />
                                             <div class="text-lg font-bold">LIVE</div>
                                         </div>
-                                        <div class="text-center text-sm text-gray-600">Запуск проекту</div>
+                                        <div class="text-center text-sm text-gray-600">{{ $t('mainPage.steps.launch') }}</div>
                                     </div>
                                 </div>
 
@@ -278,7 +250,7 @@
                                 <div
                                     v-if="step.isPopular"
                                     class="absolute -top-3 -right-3 bg-gradient-to-r from-orange-400 to-red-500 text-white px-3 py-1 rounded-full text-xs font-medium animate-bounce shadow-lg">
-                                    Важливо!
+                                    {{ $t('mainPage.steps.important') }}
                                 </div>
                             </div>
                         </div>
@@ -287,8 +259,8 @@
             </div>
 
             <!-- Process Benefits -->
-            <div class="mb-20">
-                <h3 class="text-3xl font-bold text-center text-gray-900 mb-12">Переваги нашого <span class="text-blue-600">процесу</span></h3>
+            <div class="">
+                <h3 class="text-3xl font-bold text-center text-gray-900 mb-12">{{ $t('mainPage.steps.benefitsTitle') }} <span class="text-blue-600">{{ $t('mainPage.steps.benefitsHighlight') }}</span></h3>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     <div
@@ -315,98 +287,22 @@
             </div>
         </div>
 
-        <!-- Step Detail Modal -->
-        <Teleport to="body">
-            <div
-                v-if="selectedStep"
-                class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-fade-in"
-                @click="selectedStep = null">
-                <div
-                    class="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto animate-scale-in"
-                    @click.stop>
-                    <!-- Modal content -->
-                    <div class="p-8">
-                        <div class="flex items-center justify-between mb-6">
-                            <h3 class="text-2xl font-bold text-gray-900">{{ selectedStepData?.title }}</h3>
-                            <button
-                                @click="selectedStep = null"
-                                class="w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors duration-200">
-                                <Icon
-                                    name="ic:round-close"
-                                    class="w-5 h-5 text-gray-600" />
-                            </button>
-                        </div>
-
-                        <div class="space-y-6">
-                            <div>
-                                <h4 class="font-semibold text-gray-900 mb-3">Детальний опис:</h4>
-                                <p class="text-gray-600 leading-relaxed">{{ selectedStepData?.detailedDescription }}</p>
-                            </div>
-
-                            <div>
-                                <h4 class="font-semibold text-gray-900 mb-3">Основні завдання:</h4>
-                                <ul class="space-y-2">
-                                    <li
-                                        v-for="task in selectedStepData?.tasks"
-                                        :key="task"
-                                        class="flex items-start gap-3">
-                                        <Icon
-                                            name="ic:round-check-circle"
-                                            class="w-5 h-5 text-green-500 mt-0.5" />
-                                        <span class="text-gray-600">{{ task }}</span>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <div>
-                                <h4 class="font-semibold text-gray-900 mb-3">Результати етапу:</h4>
-                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                                    <div
-                                        v-for="result in selectedStepData?.results"
-                                        :key="result"
-                                        class="flex items-center gap-2 text-sm text-gray-700">
-                                        <Icon
-                                            name="ic:round-done"
-                                            class="w-4 h-4 text-blue-500" />
-                                        {{ result }}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </Teleport>
+        <StepsModal 
+            :is-visible="selectedStep !== null" 
+            :step-data="selectedStepData" 
+            @close="selectedStep = null" />
     </section>
 </template>
 
 <script setup lang="ts">
 import { ref, computed } from "vue";
+import StepsModal from "./StepsModal/StepsModal.vue";
+import type { IProcessBenefits, IWorkStep } from "~/interface";
 
-interface WorkStep {
-    id: number;
-    title: string;
-    description: string;
-    detailedDescription: string;
-    duration: string;
-    team: string;
-    deliverables: string[];
-    tools: string[];
-    tasks: string[];
-    results: string[];
-    progress: number;
-    icon: string;
-    iconBg: string;
-    iconColor: string;
-    nodeBg: string;
-    nodeInner: string;
-    glowColor: string;
-    isPopular: boolean;
-}
 
 const selectedStep = ref<number | null>(null);
 
-const workSteps: WorkStep[] = [
+const workSteps: IWorkStep[] = [
     {
         id: 1,
         title: "Дослідження та аналіз",
@@ -549,7 +445,7 @@ const workSteps: WorkStep[] = [
     }
 ];
 
-const processBenefits = [
+const processBenefits:IProcessBenefits[] = [
     {
         id: 1,
         title: "Прозорість",
@@ -584,46 +480,6 @@ const processBenefits = [
     }
 ];
 
-const timelineStats = [
-    { value: "5", label: "Етапів роботи" },
-    { value: "14", label: "Днів до запуску" },
-    { value: "98%", label: "Проектів в термін" },
-    { value: "24/7", label: "Підтримка після запуску" }
-];
-
-const backgroundParticles = [
-    {
-        id: 1,
-        icon: "ic:round-timeline",
-        class: "text-blue-400",
-        style: { top: "12%", left: "8%" }
-    },
-    {
-        id: 2,
-        icon: "ic:round-task-alt",
-        class: "text-green-400",
-        style: { top: "20%", right: "10%" }
-    },
-    {
-        id: 3,
-        icon: "ic:round-build",
-        class: "text-purple-400",
-        style: { top: "45%", left: "5%" }
-    },
-    {
-        id: 4,
-        icon: "ic:round-rocket-launch",
-        class: "text-orange-400",
-        style: { top: "65%", right: "8%" }
-    },
-    {
-        id: 5,
-        icon: "ic:round-done-all",
-        class: "text-pink-400",
-        style: { top: "85%", left: "12%" }
-    }
-];
-
 const selectedStepData = computed(() => {
     return workSteps.find((step) => step.id === selectedStep.value);
 });
@@ -634,91 +490,4 @@ const selectStep = (stepId: number) => {
 </script>
 
 <style scoped>
-
-@keyframes scale-in {
-    from {
-        opacity: 0;
-        transform: scale(0.9);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-@keyframes bounce-subtle {
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-3px);
-    }
-}
-
-@keyframes pulse-slow {
-    0%,
-    100% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0.7;
-    }
-}
-
-.animate-blob {
-    animation: blob 12s infinite;
-}
-
-.animate-float {
-    animation: float 10s ease-in-out infinite;
-}
-
-.animate-fade-in {
-    animation: fade-in 1s ease-out;
-}
-
-.animate-fade-in-up {
-    animation: fade-in-up 0.8s ease-out forwards;
-    opacity: 0;
-}
-
-.animate-scale-in {
-    animation: scale-in 0.3s ease-out;
-}
-
-.animate-gradient {
-    background-size: 200% 200%;
-    animation: gradient 6s ease infinite;
-}
-
-.animate-bounce-subtle {
-    animation: bounce-subtle 3s infinite;
-}
-
-.animate-pulse-slow {
-    animation: pulse-slow 3s infinite;
-}
-
-.animation-delay-2000 {
-    animation-delay: 2s;
-}
-
-.animation-delay-4000 {
-    animation-delay: 4s;
-}
-
-.step-card {
-    position: relative;
-}
-
-.step-container:nth-child(even) .step-card {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(249, 250, 251, 0.8));
-}
-
-.stat-item:hover {
-    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(147, 51, 234, 0.1));
-    border-radius: 16px;
-    padding: 16px;
-}
 </style>

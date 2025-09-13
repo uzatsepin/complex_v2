@@ -6,7 +6,7 @@ export default defineNuxtConfig({
     devtools: { enabled: true },
     css: ["~/assets/css/main.css", "~/assets/css/animations.css"],
 
-    modules: ["@nuxt/eslint", "@nuxt/fonts", "@nuxt/icon", "@nuxt/image", "@nuxtjs/i18n"],
+    modules: ["@nuxt/eslint", "@nuxt/fonts", "@nuxt/icon", "@nuxt/image", "@nuxtjs/i18n", "nuxt-aos"],
     vite: {
         plugins: [tailwindcss()]
     },

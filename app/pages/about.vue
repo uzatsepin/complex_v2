@@ -1,14 +1,5 @@
 <template>
-    <div>
-        <!-- Page Head -->
-        <Head>
-            <Title>Про нас - Complex Studio | Веб-студія повного циклу</Title>
-            <Meta name="description" content="Дізнайтеся більше про нашу команду, місію та цінності. Complex Studio - ваш надійний партнер у створенні сучасних веб-рішень." />
-            <Meta property="og:title" content="Про нас - Complex Studio" />
-            <Meta property="og:description" content="Дізнайтеся більше про нашу команду, місію та цінності. Complex Studio - ваш надійний партнер у створенні сучасних веб-рішень." />
-        </Head>
-
-        <!-- Header -->
+    <div>->
         <Header />
 
         <main>

@@ -1,26 +1,10 @@
 <template>
     <section class="py-20 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
-        <!-- Background Elements -->
-        <div class="absolute inset-0">
-            <!-- Decorative orbs -->
-            <div
-                class="absolute top-20 left-10 w-80 h-80 bg-gradient-to-br from-blue-400/10 to-purple-400/10 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
-            <div
-                class="absolute bottom-20 right-10 w-72 h-72 bg-gradient-to-br from-green-400/10 to-cyan-400/10 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000"></div>
-
-            <!-- Grid pattern -->
-            <div class="absolute inset-0 opacity-20">
-                <div
-                    class="absolute inset-0"
-                    style="background-image: radial-gradient(circle at 1px 1px, rgba(59, 130, 246, 0.3) 1px, transparent 0); background-size: 40px 40px"></div>
-            </div>
-        </div>
-
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative">
             <!-- Section Header -->
-            <div class="text-center mb-16 animate-fade-in">
+            <div class="text-center mb-16">
                 <div
-                    class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-100 to-purple-100 text-blue-800 rounded-full text-sm font-medium mb-6 animate-bounce-subtle">
+                    class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-100 to-purple-100 text-blue-800 rounded-full text-sm font-medium mb-6">
                     <Icon
                         name="ic:round-mail"
                         class="w-4 h-4 mr-2 text-blue-600" />
@@ -29,7 +13,7 @@
 
                 <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
                     {{ $t("contacts.readyToStart") }}
-                    <span class="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent animate-gradient"> {{ $t("contacts.readyToStartProject") }} </span>
+                    <span class="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent"> {{ $t("contacts.readyToStartProject") }} </span>
                 </h2>
 
                 <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -128,7 +112,7 @@
                                         'w-full py-4 rounded-xl font-medium transition-all duration-300 flex items-center justify-center gap-2',
                                         isSubmitting
                                             ? 'bg-gray-400 cursor-not-allowed'
-                                            : 'bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:scale-105 hover:shadow-xl'
+                                            : 'bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:scale-101 hover:shadow-xl'
                                     ]"
                                     class="text-white">
                                     <Icon
@@ -363,69 +347,4 @@ const submitForm = async () => {
 </script>
 
 <style scoped>
-
-@keyframes slide-in-left {
-    from {
-        opacity: 0;
-        transform: translateX(-50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes slide-in-right {
-    from {
-        opacity: 0;
-        transform: translateX(50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes bounce-subtle {
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-3px);
-    }
-}
-
-.animate-blob {
-    animation: blob 15s infinite;
-}
-
-.animate-float {
-    animation: float 12s ease-in-out infinite;
-}
-
-.animate-fade-in {
-    animation: fade-in 1s ease-out;
-}
-
-.animate-slide-in-left {
-    animation: slide-in-left 1s ease-out;
-}
-
-.animate-slide-in-right {
-    animation: slide-in-right 1s ease-out;
-}
-
-.animate-gradient {
-    background-size: 200% 200%;
-    animation: gradient 6s ease infinite;
-}
-
-.animate-bounce-subtle {
-    animation: bounce-subtle 3s infinite;
-}
-
-.animation-delay-4000 {
-    animation-delay: 4s;
-}
 </style>
